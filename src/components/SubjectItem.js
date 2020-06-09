@@ -19,6 +19,8 @@ const SubjectItem = () => {
 
 const styles = StyleSheet.create({
     subjectContainer: {
+        flex: 1,
+        backgroundColor: 'yellow',
         flexDirection: 'row'
     },
     subjectId: {
