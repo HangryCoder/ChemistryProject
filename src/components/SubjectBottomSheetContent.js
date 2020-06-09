@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import CustomBottomSheetButton from './CustomBottomSheetButton';
+import SubjectSubSectionItem from './SubjectSubSectionItem';
 
 const SubjectBottomSheetContent = () => {
 
@@ -12,18 +13,26 @@ const SubjectBottomSheetContent = () => {
         );
     }
 
+    const subSections = [
+        { id: 1, name: "General Topics and Mole Concepts", isSelected: true },
+        { id: 2, name: "Gases and Liquid States", isSelected: true },
+        { id: 3, name: "Atomic Structure", isSelected: true },
+        { id: 4, name: "Chemical Bonding", isSelected: true },
+        { id: 5, name: "Energetics and Thermodynamics", isSelected: true }
+    ];
+
     return (
         <View style={styles.subjectMainContainer}>
-            {/* <FlatList
-                data={subjects}
-                renderItem={({ item }) => <SubjectItem
-                    name={item.name}
+            <FlatList
+                data={subSections}
+                renderItem={({ item }) => <SubjectSubSectionItem
                     id={item.id}
-                    xp={item.xp}
-                />}
-                keyExtractor={subject => subject.id}
+                    name={item.name}
+                    isSelected={item.isSelected} />}
+                keyExtractor={subSection => subSection.id}
                 ItemSeparatorComponent={this.flatListItemSeparator}
-            /> */}
+            />
+
             <CustomBottomSheetButton title="Next" />
         </View>
     )
@@ -34,6 +43,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'column',
         paddingHorizontal: 20
+    },
+    flatListSeparator: {
+        height: 1,
+        width: "100%",
+        backgroundColor: "#f2f6f8"
     }
 });
 

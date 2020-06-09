@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet'
 import CustomBottomSheetHeader from './CustomBottomSheetHeader';
 import StartPracticeBottomSheetContent from './StartPracticeBottomSheetContent';
+import SubjectBottomSheetContent from './SubjectBottomSheetContent';
 
 // const CustomBottomSheet = () => {
 //     return (
@@ -35,7 +36,7 @@ class CustomBottomSheet extends React.Component {
 
 
     renderContent() {
-        return <StartPracticeBottomSheetContent />;
+        return <SubjectBottomSheetContent />;
     }
 
     render() {
