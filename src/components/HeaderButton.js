@@ -1,11 +1,10 @@
 import React from 'react';
 import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const HeaderButton = (title) => {
+const HeaderButton = ({ title }) => {
     return (
         <TouchableOpacity>
             <View style={styles.buttonBackground}>
-                <Image></Image>
                 <Text style={styles.buttonText}>{title}</Text>
             </View>
         </TouchableOpacity>

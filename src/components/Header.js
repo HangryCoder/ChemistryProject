@@ -4,7 +4,7 @@ import HeaderButton from './HeaderButton';
 
 const Header = () => {
     return (<View style={styles.headerContainer}>
-        <Image source={require("../assets/icon.png")}></Image>
+        <Image source={require("../../assets/icon.png")}></Image>
         <Text style={styles.headerText}>Chemistry</Text>
         <Text style={styles.headerText}>3 topics</Text>
         <HeaderButton
@@ -16,7 +16,7 @@ const Header = () => {
 const styles = StyleSheet.create({
     headerContainer: {
         flex: 1,
-        backgroundColor: 'blue',
+        backgroundColor: 'red',
         justifyContent: 'center',
         alignItems: 'center'
     },
