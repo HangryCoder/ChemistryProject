@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button, Image, View, Text, StyleSheet } from 'react-native';
-import { red, white } from 'color-name';
+import HeaderButton from './HeaderButton';
 
 const Header = () => {
     return (<View style={styles.headerContainer}>
         <Image source={require("../assets/icon.png")}></Image>
         <Text style={styles.headerText}>Chemistry</Text>
         <Text style={styles.headerText}>3 topics</Text>
-        <Button
+        <HeaderButton
             title="Start pratice"
         />
     </View >)
