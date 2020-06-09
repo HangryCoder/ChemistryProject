@@ -7,14 +7,13 @@ import {
     StyleSheet
 } from 'react-native';
 import Header from '../components/Header';
-import SubjectItem from '../components/SubjectItem';
-import { color } from 'react-native-reanimated';
+import SubjectList from '../components/SubjectList';
 
 const HomeScreen = () => {
     return (
         <View style={styles.homeContainer}>
-            <Header style={styles.headerContainer} />
-            <SubjectItem style={styles.subjectList} />
+            <Header />
+            <SubjectList />
         </View>
     );
 };

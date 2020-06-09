@@ -6,12 +6,12 @@ import {
 } from 'react-native';
 import SubjectButton from './SubjectButton';
 
-const SubjectItem = () => {
+const SubjectItem = ({ id, title, points }) => {
     return (<View style={styles.subjectContainer}>
-        <Text style={styles.subjectId}>1</Text>
+        <Text style={styles.subjectId}>{id}</Text>
         <View style={styles.subjectTopicAndPoints}>
-            <Text style={styles.subjectTopic}>Physical Chemistry</Text>
-            <Text style={styles.subjectPoints}>294 EXP</Text>
+            <Text style={styles.subjectTopic}>{title}</Text>
+            <Text style={styles.subjectPoints}>{points} EXP</Text>
         </View>
         <SubjectButton style={styles.SubjectButton} />
     </View>);
