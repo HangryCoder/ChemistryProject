@@ -19,7 +19,7 @@ const HeaderButton = ({ title }) => {
 
 const styles = StyleSheet.create({
     buttonBackground: {
-        backgroundColor: 'black',
+        backgroundColor: 'rgba(0,0,0,0.5)',
         flexDirection: "row",
         paddingVertical: 15,
         paddingHorizontal: 20,

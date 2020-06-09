@@ -11,7 +11,7 @@ const Header = () => {
         <Text style={styles.headerTitle}>Chemistry</Text>
         <Text style={styles.headerNumberOfTopics}>3 topics</Text>
         <HeaderButton
-            title="Start pratice"
+            title="Start practice"
         />
     </View >)
 };
