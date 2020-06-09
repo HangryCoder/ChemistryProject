@@ -7,7 +7,7 @@ const HeaderButton = ({ title }) => {
             <View style={styles.buttonBackground}>
                 <Image
                     style={styles.buttonImage}
-                    source={require("../../assets/icon.png")}>
+                    source={require("../../assets/practice_icon.png")}>
                 </Image>
                 <Text
                     style={styles.buttonText}>{title}
@@ -21,19 +21,19 @@ const styles = StyleSheet.create({
     buttonBackground: {
         backgroundColor: 'black',
         flexDirection: "row",
-        paddingVertical: 10,
-        paddingHorizontal: 15,
+        paddingVertical: 15,
+        paddingHorizontal: 20,
         borderRadius: 5,
         alignItems: 'center'
     },
     buttonImage: {
-        width: 30,
-        height: 30,
-        marginEnd: 10
+        width: 18,
+        height: 18,
+        marginEnd: 8
     },
     buttonText: {
         color: 'white',
-        fontSize: 18
+        fontSize: 14
     }
 });
 
