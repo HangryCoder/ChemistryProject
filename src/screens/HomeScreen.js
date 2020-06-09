@@ -7,10 +7,14 @@ import {
     StyleSheet
 } from 'react-native';
 import Header from '../components/Header';
+import SubjectItem from '../components/SubjectItem';
 
 const HomeScreen = () => {
     return (
-        <Header></Header>
+        <View>
+            {/* <Header></Header> */}
+            <SubjectItem />
+        </View>
     );
 };
 
