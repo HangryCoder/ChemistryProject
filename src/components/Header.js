@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Image, View, Text, StyleSheet } from 'react-native';
 import HeaderButton from './HeaderButton';
+import CustomBottomSheet from './CustomBottomSheet';
 
 const Header = () => {
     return (<View style={styles.headerContainer}>
@@ -12,7 +13,7 @@ const Header = () => {
         <Text style={styles.headerNumberOfTopics}>3 topics</Text>
         <HeaderButton
             title="Start practice"
-            onPress={() => { console.log("Hello") }}
+            onPress={() => <CustomBottomSheet />}
         />
     </View >)
 };
