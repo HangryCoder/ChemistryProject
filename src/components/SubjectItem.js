@@ -11,7 +11,7 @@ const SubjectItem = ({ id, title, points }) => {
         <Text style={styles.subjectId}>{id}</Text>
         <View style={styles.subjectTopicAndPoints}>
             <Text style={styles.subjectTopic}>{title}</Text>
-            <Text style={styles.subjectPoints}>{points} EXP</Text>
+            <Text style={styles.subjectPoints}>{points} XP</Text>
         </View>
         <SubjectButton style={styles.SubjectButton} />
     </View>);
@@ -20,13 +20,13 @@ const SubjectItem = ({ id, title, points }) => {
 const styles = StyleSheet.create({
     subjectContainer: {
         flex: 1,
-        backgroundColor: 'yellow',
+        paddingVertical: 20,
+        paddingHorizontal: 15,
         flexDirection: 'row'
     },
     subjectId: {
         fontSize: 13,
         color: 'grey',
-        textAlign: 'center',
         flex: 0.1
     },
     subjectTopic: {

@@ -14,7 +14,7 @@ const SubjectButton = () => {
 const styles = StyleSheet.create({
     buttonBackground: {
         backgroundColor: '#ffffff',
-        borderWidth: 3,
+        borderWidth: 1,
         borderColor: '#ffb939',
         paddingVertical: 10,
         paddingHorizontal: 30,

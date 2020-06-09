@@ -14,8 +14,20 @@ const SubjectList = () => {
         { id: 8, title: 'Physics Chemistry', points: 294 }
     ];
 
+    flatListItemSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#f2f6f8"
+                }}
+            />
+        );
+    }
+
     return (
-        <View style={styles.headerContainer}>
+        <View style={styles.subjectListContainer}>
             <FlatList
                 data={subjects}
                 renderItem={({ item }) => <SubjectItem
@@ -24,15 +36,17 @@ const SubjectList = () => {
                     points={item.points}
                 />}
                 keyExtractor={subject => subject.id}
+                ItemSeparatorComponent={this.flatListItemSeparator}
             />
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    headerContainer: {
+    subjectListContainer: {
         flex: 1,
-        backgroundColor: 'blue'
+        backgroundColor: '#fff',
+        paddingHorizontal: 10
     }
 });
 
