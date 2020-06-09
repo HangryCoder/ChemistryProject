@@ -3,11 +3,8 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
 
 const SubjectList = () => {
-    const subjects = [
-        { id: 1, title: 'Physical Chemistry', points: 294 },
-        { id: 2, title: 'Inorganic Chemistry', points: 3631 },
-        { id: 3, title: 'Organic Chemistry', points: 510 }
-    ];
+    const subjectData = require('../../assets/JSONFiles/SubjectData.json');
+    const subjects = subjectData.results;//JSON.parse(subjectData).results;
 
     flatListItemSeparator = () => {
         return (
@@ -22,9 +19,9 @@ const SubjectList = () => {
             <FlatList
                 data={subjects}
                 renderItem={({ item }) => <SubjectItem
-                    title={item.title}
+                    name={item.name}
                     id={item.id}
-                    points={item.points}
+                    xp={item.xp}
                 />}
                 keyExtractor={subject => subject.id}
                 ItemSeparatorComponent={this.flatListItemSeparator}

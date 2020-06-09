@@ -6,12 +6,12 @@ import {
 } from 'react-native';
 import SubjectButton from './SubjectButton';
 
-const SubjectItem = ({ id, title, points }) => {
+const SubjectItem = ({ id, name, xp }) => {
     return (<View style={styles.subjectContainer}>
         <Text style={styles.subjectId}>{id}</Text>
         <View style={styles.subjectTopicAndPoints}>
-            <Text style={styles.subjectTopic}>{title}</Text>
-            <Text style={styles.subjectPoints}>{points} XP</Text>
+            <Text style={styles.subjectTopic}>{name}</Text>
+            <Text style={styles.subjectPoints}>{xp} XP</Text>
         </View>
         <SubjectButton style={styles.SubjectButton} />
     </View>);
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     subjectId: {
         fontSize: 13,
         color: 'grey',
+        fontWeight: 'bold',
         flex: 0.1
     },
     subjectTopic: {

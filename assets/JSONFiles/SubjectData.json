@@ -3,6 +3,7 @@
     "next": null,
     "previous": null,
     "results": [{
+            "id": 1,
             "name": "Physical Chemistry",
             "uid": "SIPRC",
             "level": 15,
@@ -78,6 +79,7 @@
             ]
         },
         {
+            "id": 2,
             "name": "Inorganic Chemistry",
             "uid": "RCWQY",
             "level": 15,
@@ -123,6 +125,7 @@
             ]
         },
         {
+            "id": 3,
             "name": "Organic Chemistry",
             "uid": "NURMT",
             "level": 15,
