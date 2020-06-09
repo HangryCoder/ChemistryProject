@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet'
-import CustomBottomSheetButton from './CustomBottomSheetButton';
 import CustomBottomSheetHeader from './CustomBottomSheetHeader';
+import StartPracticeBottomSheetContent from './StartPracticeBottomSheetContent';
 
 // const CustomBottomSheet = () => {
 //     return (
@@ -27,11 +27,15 @@ class CustomBottomSheet extends React.Component {
         //this.bottomSheetRef.current.snapTo(0);
     }
 
-    contentHeader() {
+    renderHeader() {
         return (<View>
             <CustomBottomSheetHeader title="Physical Chemistry" subTitle="7 Topics" />
-            <CustomBottomSheetButton title="Start practice" />
         </View>);
+    }
+
+
+    renderContent() {
+        return <StartPracticeBottomSheetContent />;
     }
 
     render() {
@@ -39,7 +43,8 @@ class CustomBottomSheet extends React.Component {
             <View style={styles.bottomSheetContainer} >
                 <BottomSheet
                     snapPoints={[450, 300, 0]}
-                    renderContent={this.contentHeader}
+                    renderHeader={this.renderHeader}
+                    renderContent={this.renderContent}
                 />
             </View>
         );

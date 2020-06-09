@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     headerSubTitle: {
-        color: '#7a7a7a',
+        color: '#828282',
         marginTop: 2,
         fontSize: 12
     },
