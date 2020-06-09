@@ -2,12 +2,14 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
+import CustomBottomSheet from '../components/CustomBottomSheet';
 
 const HomeScreen = () => {
     return (
         <View style={styles.homeContainer}>
             <Header />
             <SubjectList />
+            <CustomBottomSheet />
         </View>
     );
 };
