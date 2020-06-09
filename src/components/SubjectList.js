@@ -6,22 +6,13 @@ const SubjectList = () => {
     const subjects = [
         { id: 1, title: 'Physics Chemistry', points: 294 },
         { id: 2, title: 'Inorganic Chemistry', points: 3631 },
-        { id: 3, title: 'Organic Chemistry', points: 510 },
-        { id: 4, title: 'Physics Chemistry', points: 294 },
-        { id: 5, title: 'Physics Chemistry', points: 294 },
-        { id: 6, title: 'Physics Chemistry', points: 294 },
-        { id: 7, title: 'Physics Chemistry', points: 294 },
-        { id: 8, title: 'Physics Chemistry', points: 294 }
+        { id: 3, title: 'Organic Chemistry', points: 510 }
     ];
 
     flatListItemSeparator = () => {
         return (
             <View
-                style={{
-                    height: 1,
-                    width: "100%",
-                    backgroundColor: "#f2f6f8"
-                }}
+                style={styles.flatListSeparator}
             />
         );
     }
@@ -47,6 +38,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         paddingHorizontal: 10
+    },
+    flatListSeparator: {
+        height: 1,
+        width: "100%",
+        backgroundColor: "#f2f6f8"
     }
 });
 
