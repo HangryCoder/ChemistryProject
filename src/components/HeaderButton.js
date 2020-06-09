@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const HeaderButton = ({ title }) => {
+const HeaderButton = ({ title, onPress }) => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
             <View style={styles.buttonBackground}>
                 <Image
                     style={styles.buttonImage}

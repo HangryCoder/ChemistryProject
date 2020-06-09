@@ -12,6 +12,7 @@ const Header = () => {
         <Text style={styles.headerNumberOfTopics}>3 topics</Text>
         <HeaderButton
             title="Start practice"
+            onPress={() => { console.log("Hello") }}
         />
     </View >)
 };
