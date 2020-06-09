@@ -4,7 +4,7 @@ import SubjectItem from './SubjectItem';
 
 const SubjectList = () => {
     const subjects = [
-        { id: 1, title: 'Physics Chemistry', points: 294 },
+        { id: 1, title: 'Physical Chemistry', points: 294 },
         { id: 2, title: 'Inorganic Chemistry', points: 3631 },
         { id: 3, title: 'Organic Chemistry', points: 510 }
     ];

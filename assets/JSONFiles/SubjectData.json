@@ -1,0 +1,201 @@
+{
+    "count": 3,
+    "next": null,
+    "previous": null,
+    "results": [{
+            "name": "Physical Chemistry",
+            "uid": "SIPRC",
+            "level": 15,
+            "active_session_exist": false,
+            "xp": 294.0,
+            "latest_session_uid": null,
+            "latest_session_no_of_questions": null,
+            "sub_sections": [{
+                    "name": "General Topics & Mole Concept",
+                    "uid": "JNOZN",
+                    "level": 20
+                },
+                {
+                    "name": "Gases & Liquid States",
+                    "uid": "GFHBH",
+                    "level": 20
+                },
+                {
+                    "name": "Atomic Structure",
+                    "uid": "CPYDT",
+                    "level": 20
+                },
+                {
+                    "name": "Chemical Bonding",
+                    "uid": "YLRBC",
+                    "level": 20
+                },
+                {
+                    "name": "Energetics & Thermodynamics",
+                    "uid": "YXEUN",
+                    "level": 20
+                },
+                {
+                    "name": "Solutions",
+                    "uid": "NYLZM",
+                    "level": 20
+                },
+                {
+                    "name": "Chemical Equilibrium",
+                    "uid": "YRDDM",
+                    "level": 20
+                },
+                {
+                    "name": "Redox Reactions",
+                    "uid": "YSEIO",
+                    "level": 20
+                },
+                {
+                    "name": "Electrochemistry",
+                    "uid": "UVYTN",
+                    "level": 20
+                },
+                {
+                    "name": "Chemical Kinetics",
+                    "uid": "MLSQD",
+                    "level": 20
+                },
+                {
+                    "name": "Surface Chemistry",
+                    "uid": "OZAOM",
+                    "level": 20
+                },
+                {
+                    "name": "Solid State",
+                    "uid": "GOWFH",
+                    "level": 20
+                },
+                {
+                    "name": "Ionic Equilibrium",
+                    "uid": "TSPRH",
+                    "level": 20
+                }
+            ]
+        },
+        {
+            "name": "Inorganic Chemistry",
+            "uid": "RCWQY",
+            "level": 15,
+            "active_session_exist": false,
+            "xp": 3631.0,
+            "latest_session_uid": null,
+            "latest_session_no_of_questions": null,
+            "sub_sections": [{
+                    "name": "Periodic Table and its Properties",
+                    "uid": "MCPVM",
+                    "level": 20
+                },
+                {
+                    "name": "Metallurgy & Isolation",
+                    "uid": "SIHHB",
+                    "level": 20
+                },
+                {
+                    "name": "Hydrogen",
+                    "uid": "UYTSH",
+                    "level": 20
+                },
+                {
+                    "name": "S - Block Elements",
+                    "uid": "JAAXA",
+                    "level": 20
+                },
+                {
+                    "name": "P - Block Elements",
+                    "uid": "JIQHQ",
+                    "level": 20
+                },
+                {
+                    "name": "D & F Block Elements",
+                    "uid": "FEYVP",
+                    "level": 20
+                },
+                {
+                    "name": "Coordination Compounds",
+                    "uid": "EWIWQ",
+                    "level": 20
+                }
+            ]
+        },
+        {
+            "name": "Organic Chemistry",
+            "uid": "NURMT",
+            "level": 15,
+            "active_session_exist": false,
+            "xp": 510.0,
+            "latest_session_uid": null,
+            "latest_session_no_of_questions": null,
+            "sub_sections": [{
+                    "name": "Basic Principle",
+                    "uid": "SKGPE",
+                    "level": 20
+                },
+                {
+                    "name": "Alkanes & Alkyl Halides",
+                    "uid": "ZEEMT",
+                    "level": 20
+                },
+                {
+                    "name": "Aromatic Hydrocarbons",
+                    "uid": "TEOIZ",
+                    "level": 20
+                },
+                {
+                    "name": "Alcohols & Ether",
+                    "uid": "SURKT",
+                    "level": 20
+                },
+                {
+                    "name": "Aldehydes and Ketones",
+                    "uid": "FAAJO",
+                    "level": 20
+                },
+                {
+                    "name": "Amines",
+                    "uid": "GIOYE",
+                    "level": 20
+                },
+                {
+                    "name": "Polymers",
+                    "uid": "TIZPM",
+                    "level": 20
+                },
+                {
+                    "name": "Biomolecule, Amino Acid & Protein",
+                    "uid": "OOGME",
+                    "level": 20
+                },
+                {
+                    "name": "Stereochemistry & Isomerism",
+                    "uid": "JHRIX",
+                    "level": 20
+                },
+                {
+                    "name": "Everyday Chemistry",
+                    "uid": "WQQTE",
+                    "level": 20
+                },
+                {
+                    "name": "Alkenes & Alkynes Halides",
+                    "uid": "OFRGJ",
+                    "level": 20
+                },
+                {
+                    "name": "Carboxylic Acids",
+                    "uid": "PLRZD",
+                    "level": 20
+                },
+                {
+                    "name": "Phenols",
+                    "uid": "SUHLL",
+                    "level": 20
+                }
+            ]
+        }
+    ]
+}
