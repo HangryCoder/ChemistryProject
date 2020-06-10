@@ -28,12 +28,12 @@ const SubjectSubSectionItem = ({ id, name, isSelected }) => {
 const styles = StyleSheet.create({
     subSectionContainer: {
         flex: 1,
-        paddingVertical: 20,
+        paddingVertical: 10,
         paddingHorizontal: 15,
         flexDirection: 'row'
     },
     subSectionId: {
-        fontSize: 16,
+        fontSize: 14,
         color: '#828282',
         fontWeight: 'bold',
         alignSelf: 'center',

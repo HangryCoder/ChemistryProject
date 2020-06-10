@@ -5,13 +5,13 @@ import SubjectSubSectionItem from './SubjectSubSectionItem';
 
 const SubjectBottomSheetContent = ({ subSections, selectedSubSectionsCountCallback }) => {
 
-    flatListItemSeparator = () => {
+    function flatListItemSeparator() {
         return (
             <View
                 style={styles.flatListSeparator}
             />
         );
-    };
+    }
 
     if (subSections != null) {
         selectedSubSectionsCountCallback(subSections.length);
@@ -27,7 +27,7 @@ const SubjectBottomSheetContent = ({ subSections, selectedSubSectionsCountCallba
                         name={item.name}
                         isSelected={true} />}
                     keyExtractor={subSection => subSection.name}
-                    ItemSeparatorComponent={this.flatListItemSeparator}
+                    ItemSeparatorComponent={() => flatListItemSeparator()}
                 />
             </View>
             <CustomBottomSheetButton title="Next" />
