@@ -2,8 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
-import CustomBottomSheet from '../components/CustomBottomSheet';
-import SubjectSubSectionBottomSheet from '../components/SubjectSubSectionBottomSheet';
+import CustomBottomSheet from '../components/bottomsheets/startPractice/CustomBottomSheet';
+import SubjectSubSectionBottomSheet from '../components/bottomsheets/subSection/SubjectSubSectionBottomSheet';
 
 const HomeScreen = () => {
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import CustomBottomSheetButton from './CustomBottomSheetButton';
-import ImageButton from './ImageButton';
+import CustomBottomSheetButton from '../CustomBottomSheetButton';
+import ImageButton from '../../ImageButton';
 
 const StartPracticeCustomBottomSheetContent = () => {
 
@@ -13,7 +13,7 @@ const StartPracticeCustomBottomSheetContent = () => {
             <View style={styles.startPracticeContainer}>
                 <ImageButton
                     onPress={() => setCount(count - step)}
-                    icon={require('../../assets/minus.png')}
+                    icon={require('../../../../assets/minus.png')}
                 />
                 <View style={styles.questionContainer}>
                     <Text style={styles.numberOfQuestions}>{count}</Text>
@@ -21,7 +21,7 @@ const StartPracticeCustomBottomSheetContent = () => {
                 </View>
                 <ImageButton
                     onPress={() => setCount(count + step)}
-                    icon={require('../../assets/add.png')}
+                    icon={require('../../../../assets/add.png')}
                 />
             </View>
             <CustomBottomSheetButton title="Start practice" onPress={() => console.log("Hello")} />

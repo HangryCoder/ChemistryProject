@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet'
-import CustomBottomSheetHeader from './CustomBottomSheetHeader';
-import SubjectBottomSheetContent from './SubjectBottomSheetContent';
+import CustomBottomSheetHeader from '../CustomBottomSheetHeader';
+import StartPracticeBottomSheetContent from './StartPracticeBottomSheetContent';
+import SubjectBottomSheetContent from '../subSection/SubjectBottomSheetContent';
 import Animated from 'react-native-reanimated';
 
 const AnimatedView = Animated.View;
@@ -11,13 +12,13 @@ const snapPoints = [
     0
 ];
 
-const SubjectSubSectionBottomSheet = ({ bottomSheetRef }) => {
+const CustomBottomSheet = ({ bottomSheetRef }) => {
     let fall = new Animated.Value(1);
 
     renderHeader = () => {
         return (<View>
             <CustomBottomSheetHeader
-                title="Physical Chemistry"
+                title="Chemistry"
                 subTitle="7 Topics"
                 onPress={() => bottomSheetRef.current.snapTo(1)} />
         </View>);
@@ -63,7 +64,7 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef }) => {
                         { opacity: animatedBackgroundOpacity },
                     ]}
                 />
-                <SubjectBottomSheetContent />
+                <StartPracticeBottomSheetContent />
             </AnimatedView>
         );
     };
@@ -76,7 +77,6 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef }) => {
                 callbackNode={fall}
                 enabledHeaderGestureInteraction={true}
                 enabledContentGestureInteraction={false}
-                enabledInnerScrolling={true}
                 snapPoints={snapPoints}
                 renderHeader={this.renderHeader}
                 renderContent={this.renderContent}
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SubjectSubSectionBottomSheet;
+export default CustomBottomSheet;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import CustomBottomSheetButton from './CustomBottomSheetButton';
+import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import SubjectSubSectionItem from './SubjectSubSectionItem';
 
 const SubjectBottomSheetContent = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import ImageButton from './ImageButton';
+import ImageButton from '../ImageButton';
 
 const CustomBottomSheetHeader = ({ title, subTitle, onPress }) => {
     return (
@@ -15,7 +15,7 @@ const CustomBottomSheetHeader = ({ title, subTitle, onPress }) => {
             </View>
             <View style={styles.imageContainer}>
                 <ImageButton
-                    icon={require('../../assets/close.png')}
+                    icon={require('../../../assets/close.png')}
                     onPress={onPress}
                 />
             </View>
