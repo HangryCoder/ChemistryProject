@@ -6,7 +6,7 @@ const SubjectList = ({ fetchSubjectData }) => {
     const subjectData = require('../../assets/JSONFiles/SubjectData.json');
     const subjects = subjectData.results;
 
-    flatListItemSeparator = () => {
+    function flatListItemSeparator() {
         return (
             <View
                 style={styles.flatListSeparator}
@@ -27,7 +27,7 @@ const SubjectList = ({ fetchSubjectData }) => {
                     }}
                 />}
                 keyExtractor={subject => subject.id}
-                ItemSeparatorComponent={this.flatListItemSeparator}
+                ItemSeparatorComponent={() => flatListItemSeparator()}
             />
         </View>
     )
