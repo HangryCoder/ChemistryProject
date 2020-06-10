@@ -12,7 +12,7 @@ const Header = ({ subjectBottomSheetRef }) => {
         <Text style={styles.headerNumberOfTopics}>3 topics</Text>
         <HeaderButton
             title="Start practice"
-            onPress={() => subjectBottomSheetRef.current.snapTo(1)}
+            onPress={() => subjectBottomSheetRef.current.snapTo(0)}
         />
     </View >)
 };

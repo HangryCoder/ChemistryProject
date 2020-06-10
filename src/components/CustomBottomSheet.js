@@ -9,17 +9,18 @@ import Animated from 'react-native-reanimated';
 const AnimatedView = Animated.View;
 const snapPoints = [
     450,
-    15 + 24 + 10 + 30 + 28
+    0
 ];
 
 const CustomBottomSheet = ({ bottomSheetRef }) => {
-
-    //let bottomSheetRef = React.createRef();
     let fall = new Animated.Value(1);
 
     renderHeader = () => {
         return (<View>
-            <CustomBottomSheetHeader title="Physical Chemistry" subTitle="7 Topics" />
+            <CustomBottomSheetHeader
+                title="Physical Chemistry"
+                subTitle="7 Topics"
+                onPress={() => bottomSheetRef.current.snapTo(1)} />
         </View>);
     };
 
@@ -72,8 +73,9 @@ const CustomBottomSheet = ({ bottomSheetRef }) => {
         <View style={styles.bottomSheetContainer} >
             <BottomSheet
                 ref={bottomSheetRef}
-                initialSnap={0}
+                initialSnap={1}
                 callbackNode={fall}
+                enabledHeaderGestureInteraction={false}
                 enabledContentGestureInteraction={false}
                 snapPoints={snapPoints}
                 renderHeader={this.renderHeader}

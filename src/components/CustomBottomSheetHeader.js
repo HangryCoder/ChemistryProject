@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const CustomBottomSheetHeader = ({ title, subTitle }) => {
+const CustomBottomSheetHeader = ({ title, subTitle, onPress }) => {
     return (
         <View style={styles.headerContainer}>
             <View style={styles.textContainer}>
@@ -13,11 +13,13 @@ const CustomBottomSheetHeader = ({ title, subTitle }) => {
                 </Text>
             </View>
             <View style={styles.imageContainer}>
-                <Image
-                    style={styles.cancelIcon}
-                    source={require('../../assets/close.png')} />
+                <TouchableOpacity onPress={onPress}>
+                    <Image
+                        style={styles.cancelIcon}
+                        source={require('../../assets/close.png')} />
+                </TouchableOpacity>
             </View>
-        </View>
+        </View >
     )
 };
 
