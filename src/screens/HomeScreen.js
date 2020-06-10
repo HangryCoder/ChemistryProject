@@ -3,16 +3,19 @@ import { View, StyleSheet } from 'react-native';
 import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
 import CustomBottomSheet from '../components/CustomBottomSheet';
-import SubjectBottomSheetContent from '../components/SubjectBottomSheetContent';
 
 const HomeScreen = () => {
+
+    let bottomSheetRef = React.createRef();
+
     return (
         <View style={styles.mainContainer}>
-            {/* <View style={styles.homeContainer}>
-                <Header />
+            <View style={styles.homeContainer}>
+                <Header
+                    subjectBottomSheetRef={bottomSheetRef} />
                 <SubjectList />
-            </View> */}
-            <CustomBottomSheet style={styles.bottomSheetContainer} />
+                <CustomBottomSheet bottomSheetRef={bottomSheetRef} style={styles.bottomSheetContainer} />
+            </View>
         </View>
 
         //Working with dummy values

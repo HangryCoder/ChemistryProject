@@ -12,9 +12,9 @@ const snapPoints = [
     15 + 24 + 10 + 30 + 28
 ];
 
-const CustomBottomSheet = () => {
+const CustomBottomSheet = ({ bottomSheetRef }) => {
 
-    let bottomSheetRef = React.createRef();
+    //let bottomSheetRef = React.createRef();
     let fall = new Animated.Value(1);
 
     renderHeader = () => {

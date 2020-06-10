@@ -1,9 +1,8 @@
 import React from 'react';
 import { Button, Image, View, Text, StyleSheet } from 'react-native';
 import HeaderButton from './HeaderButton';
-import CustomBottomSheet from './CustomBottomSheet';
 
-const Header = () => {
+const Header = ({ subjectBottomSheetRef }) => {
     return (<View style={styles.headerContainer}>
         <Image
             style={styles.headerImage}
@@ -13,7 +12,7 @@ const Header = () => {
         <Text style={styles.headerNumberOfTopics}>3 topics</Text>
         <HeaderButton
             title="Start practice"
-            onPress={() => <CustomBottomSheet />}
+            onPress={() => subjectBottomSheetRef.current.snapTo(1)}
         />
     </View >)
 };
