@@ -30,7 +30,7 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
     const flatListRef = React.createRef();
 
     function getCountOfSelectedSubSections(count) {
-        setTopicCount(count);
+        setTopicCount(topicCount + count);
     }
 
     function displayAppropriateBottomSheet() {
@@ -64,8 +64,9 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
             }
             header={<CustomBottomSheetHeader
                 title={subject.name}
-                subTitle={subject.sub_sections != null ? subject.sub_sections.length : topicCount}
+                subTitle={topicCount}
                 onPress={() => bottomSheetRef.current.snapTo(1)} />}
+            onBottomSheetOpenStart={() => setTopicCount(subject.sub_sections.length)}
             onBottomSheetCloseEnd={() => {
                 flatListRef.current.scrollToIndex({ animated: true, index: 0 })
             }

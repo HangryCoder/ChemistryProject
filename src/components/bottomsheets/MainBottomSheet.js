@@ -9,7 +9,11 @@ const snapPoints = [
     0
 ];
 
-const MainBottomSheet = ({ bottomSheetRef, content, header, onBottomSheetCloseEnd }) => {
+const MainBottomSheet = ({ bottomSheetRef,
+    content,
+    header,
+    onBottomSheetOpenStart,
+    onBottomSheetCloseEnd }) => {
     let fall = new Animated.Value(1);
 
     function renderHeader() {
@@ -74,6 +78,7 @@ const MainBottomSheet = ({ bottomSheetRef, content, header, onBottomSheetCloseEn
                 snapPoints={snapPoints}
                 renderHeader={() => renderHeader()}
                 renderContent={() => renderContent()}
+                onOpenStart={onBottomSheetOpenStart}
                 onCloseEnd={onBottomSheetCloseEnd}
             />
             {renderShadow()}
