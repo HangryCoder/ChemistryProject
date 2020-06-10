@@ -13,43 +13,13 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
 
     function displayAppropriateBottomSheet() {
         if (subject == null) {
-            displayStartPractice();
+            return displayStartPractice()
         } else {
-            displaySubjectSubSection();
+            return displaySubjectSubSection()
         }
     }
 
     function displayStartPractice() {
-        <MainBottomSheet
-            bottomSheetRef={bottomSheetRef}
-            content={<StartPracticeBottomSheetContent />
-            }
-            header={<CustomBottomSheetHeader
-                title="Chemistry"
-                subTitle="7 Topics"
-                onPress={() => bottomSheetRef.current.snapTo(1)} />} />
-
-    }
-
-    function displaySubjectSubSection() {
-        <MainBottomSheet
-            bottomSheetRef={bottomSheetRef}
-            content={<SubjectBottomSheetContent
-                subSections={subject.sub_sections}
-                selectedSubSectionsCountCallback={(count) => getCountOfSelectedSubSections(count)}
-            />
-            }
-            header={<CustomBottomSheetHeader
-                title={subject.name}
-                subTitle={topicCount}
-                onPress={() => bottomSheetRef.current.snapTo(1)} />} />
-    }
-
-    // return (
-    //     displayAppropriateBottomSheet()
-    // )
-
-    if (subject == null) {
         return (<MainBottomSheet
             bottomSheetRef={bottomSheetRef}
             content={<StartPracticeBottomSheetContent />
@@ -59,7 +29,9 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
                 subTitle="7 Topics"
                 onPress={() => bottomSheetRef.current.snapTo(1)} />} />
         )
-    } else {
+    }
+
+    function displaySubjectSubSection() {
         return (<MainBottomSheet
             bottomSheetRef={bottomSheetRef}
             content={<SubjectBottomSheetContent
@@ -72,6 +44,8 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
                 subTitle={topicCount}
                 onPress={() => bottomSheetRef.current.snapTo(1)} />} />)
     }
+
+    return displayAppropriateBottomSheet()
 };
 
 export default HomeScreenBottomSheet;
