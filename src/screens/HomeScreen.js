@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
 import HomeScreenBottomSheet from '../components/bottomsheets/HomeScreenBottomSheet';
@@ -16,21 +16,29 @@ const HomeScreen = () => {
 
     function openStartPracticeBottomSheet() {
         setSubject(null);
-        bottomSheetRef.current.snapTo(0);
-        console.log("openStartPracticeBottomSheet");
+        openBottomSheet();
     }
 
     function openSubjectBottomSheet() {
-        console.log("openSubjectBottomSheet");
-        bottomSheetRef.current.snapTo(0);
+        openBottomSheet();
     };
+
+    function openBottomSheet() {
+        bottomSheetRef.current.snapTo(0);
+    }
+
+    function closeBottomSheet() {
+        bottomSheetRef.current.snapTo(1);
+    }
 
     return (
         <View style={styles.mainContainer}>
-            <View style={styles.homeContainer} >
-                <Header startPracticeCallback={() => openStartPracticeBottomSheet()} />
-                <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
-            </View>
+            <TouchableWithoutFeedback onPress={() => closeBottomSheet()}>
+                <View style={styles.homeContainer} >
+                    <Header startPracticeCallback={() => openStartPracticeBottomSheet()} />
+                    <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
+                </View>
+            </TouchableWithoutFeedback>
             <HomeScreenBottomSheet
                 bottomSheetRef={bottomSheetRef}
                 subject={subject}
