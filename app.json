@@ -27,6 +27,7 @@
     },
     "android": {
       "package": "com.hangrycoder.chemistryproject"
-    }
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
