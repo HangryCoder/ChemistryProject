@@ -5,9 +5,7 @@ import SubjectSubSectionItem from './SubjectSubSectionItem';
 
 const SubjectBottomSheetContent = ({ subSections,
     selectedSubSectionsCountCallback,
-    bottomSheetCloseCallback }) => {
-
-    const flatListRef = React.createRef();
+    flatListRef }) => {
 
     function flatListItemSeparator() {
         return (
@@ -25,6 +23,7 @@ const SubjectBottomSheetContent = ({ subSections,
         <View style={styles.subjectMainContainer}>
             <View style={styles.flatListContainer}>
                 <FlatList
+                    ref={flatListRef}
                     data={subSections}
                     renderItem={({ item }) => <SubjectSubSectionItem
                         id={item.id}
