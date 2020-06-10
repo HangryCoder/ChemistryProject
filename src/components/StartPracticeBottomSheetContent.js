@@ -1,37 +1,28 @@
 import React, { useState } from 'react';
-import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import CustomBottomSheetButton from './CustomBottomSheetButton';
+import IncrementDecrementButton from './IncrementDecrementButton';
 
 const StartPracticeCustomBottomSheetContent = () => {
 
     const [count, setCount] = useState(0);
     const step = 5;
 
-    incrementCounter = () => {
-        setCount(count + step)
-    };
-
-    decrementCounter = () => {
-        setCount(count - step)
-    };
-
     return (
         <View style={styles.startPracticeMainContainer}>
             <View style={styles.startPracticeContainer}>
-                <TouchableOpacity
-                    style={styles.imageContainer}
-                    onPress={() => setCount(count - step)}>
-                    <Image style={styles.imageButton} source={require('../../assets/minus.png')} />
-                </TouchableOpacity>
+                <IncrementDecrementButton
+                    onPress={() => setCount(count - step)}
+                    icon={require('../../assets/minus.png')}
+                />
                 <View style={styles.questionContainer}>
                     <Text style={styles.numberOfQuestions}>{count}</Text>
                     <Text style={styles.questions}>Questions</Text>
                 </View>
-                <TouchableOpacity
-                    style={styles.imageContainer}
-                    onPress={() => setCount(count + step)}>
-                    <Image style={styles.imageButton} source={require('../../assets/add.png')} />
-                </TouchableOpacity>
+                <IncrementDecrementButton
+                    onPress={() => setCount(count + step)}
+                    icon={require('../../assets/add.png')}
+                />
             </View>
             <CustomBottomSheetButton title="Start practice" onPress={() => console.log("Hello")} />
         </View>
@@ -62,13 +53,6 @@ const styles = StyleSheet.create({
     questions: {
         fontSize: 14,
         color: '#828282'
-    },
-    imageContainer: {
-        alignSelf: 'center'
-    },
-    imageButton: {
-        width: 20,
-        height: 20
     }
 });
 
