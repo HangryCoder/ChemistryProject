@@ -1,19 +1,39 @@
-import React from 'react';
-import { Image, View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import CustomBottomSheetButton from './CustomBottomSheetButton';
 
 const StartPracticeCustomBottomSheetContent = () => {
+
+    const [count, setCount] = useState(0);
+    const step = 5;
+
+    incrementCounter = () => {
+        setCount(count + step)
+    };
+
+    decrementCounter = () => {
+        setCount(count - step)
+    };
+
     return (
         <View style={styles.startPracticeMainContainer}>
             <View style={styles.startPracticeContainer}>
-                <Image style={styles.imageButton} source={require('../../assets/minus.png')} />
+                <TouchableOpacity
+                    style={styles.imageContainer}
+                    onPress={() => setCount(count - step)}>
+                    <Image style={styles.imageButton} source={require('../../assets/minus.png')} />
+                </TouchableOpacity>
                 <View style={styles.questionContainer}>
-                    <Text style={styles.numberOfQuestions}>10</Text>
+                    <Text style={styles.numberOfQuestions}>{count}</Text>
                     <Text style={styles.questions}>Questions</Text>
                 </View>
-                <Image style={styles.imageButton} source={require('../../assets/add.png')} />
+                <TouchableOpacity
+                    style={styles.imageContainer}
+                    onPress={() => setCount(count + step)}>
+                    <Image style={styles.imageButton} source={require('../../assets/add.png')} />
+                </TouchableOpacity>
             </View>
-            <CustomBottomSheetButton title="Start practice" />
+            <CustomBottomSheetButton title="Start practice" onPress={() => console.log("Hello")} />
         </View>
     )
 };
@@ -43,10 +63,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#828282'
     },
+    imageContainer: {
+        alignSelf: 'center'
+    },
     imageButton: {
         width: 20,
-        height: 20,
-        alignSelf: 'center'
+        height: 20
     }
 });
 
