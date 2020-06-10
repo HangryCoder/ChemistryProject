@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -7,10 +7,16 @@ import {
 } from 'react-native';
 
 const SubjectSubSectionItem = ({ id, name, isSelected }) => {
+
+    const [isChecked, setChecked] = useState(true);
+
     return (<View style={styles.subSectionContainer}>
         <Text style={styles.subSectionId}>{id}</Text>
         <Text style={styles.subSectionName}>{name}</Text>
-        <CheckBox value={isSelected} checkedColor='red' />
+        <CheckBox
+            value={isChecked}
+            onValueChange={() => setChecked(!isChecked)}
+            checkedColor='red' />
     </View>);
 };
 

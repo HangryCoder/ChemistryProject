@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
 import CustomBottomSheet from '../components/CustomBottomSheet';
-import StartPracticeBottomSheetContent from '../components/StartPracticeBottomSheetContent';
+import SubjectBottomSheetContent from '../components/SubjectBottomSheetContent';
 
 const HomeScreen = () => {
     return (
@@ -12,7 +12,7 @@ const HomeScreen = () => {
                 <Header />
                 <SubjectList />
             </View> */}
-            <StartPracticeBottomSheetContent style={styles.bottomSheetContainer} />
+            <SubjectBottomSheetContent style={styles.bottomSheetContainer} />
         </View>
 
         //Working with dummy values
