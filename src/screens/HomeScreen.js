@@ -12,6 +12,11 @@ const HomeScreen = () => {
 
     fetchSubjectData = (subjectData) => {
         console.log(subjectData);
+        openSubjectBottomSheet()
+    };
+
+    function openSubjectBottomSheet() {
+        secondBottomSheet.current.snapTo(0);
     };
 
     return (
@@ -19,9 +24,7 @@ const HomeScreen = () => {
             <View style={styles.homeContainer}>
                 <Header
                     subjectBottomSheetRef={bottomSheetRef} />
-                <SubjectList bottomSheetRef={secondBottomSheet}
-                    fetchSubjectData={this.fetchSubjectData}
-                />
+                <SubjectList fetchSubjectData={this.fetchSubjectData} />
                 {/* <CustomBottomSheet bottomSheetRef={bottomSheetRef} style={styles.bottomSheetContainer} /> */}
                 <SubjectSubSectionBottomSheet bottomSheetRef={secondBottomSheet} style={styles.bottomSheetContainer} />
             </View>
