@@ -16,7 +16,7 @@ const CustomBottomSheetButton = ({ title, onPress }) => {
 const styles = StyleSheet.create({
     buttonBackground: {
         backgroundColor: '#ffb939',
-        paddingVertical: 15,
+        paddingVertical: 18,
         paddingHorizontal: 20,
         borderRadius: 5,
         justifyContent: 'center',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: 'white',
-        fontSize: 14,
+        fontSize: 15,
         fontWeight: 'bold'
     }
 });

@@ -34,12 +34,13 @@ const styles = StyleSheet.create({
     headerTitle: {
         color: '#49545d',
         fontSize: 17,
+        fontFamily: 'serif',
         fontWeight: 'bold'
     },
     headerSubTitle: {
         color: '#828282',
         marginTop: 2,
-        fontSize: 12
+        fontSize: 13
     },
     textContainer: {
         flexDirection: 'column',

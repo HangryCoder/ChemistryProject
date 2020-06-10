@@ -27,12 +27,13 @@ const styles = StyleSheet.create({
     headerImage: {
         width: 50,
         height: 50,
-        marginBottom: 8
+        marginVertical: 14
     },
     headerTitle: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 28,
+        fontFamily: 'serif',
+        fontSize: 30,
         marginBottom: 4
     },
     headerNumberOfTopics: {

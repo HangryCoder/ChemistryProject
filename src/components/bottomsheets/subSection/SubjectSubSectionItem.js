@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     subSectionId: {
-        fontSize: 14,
+        fontSize: 15,
         color: '#828282',
         fontWeight: 'bold',
         alignSelf: 'center',

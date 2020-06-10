@@ -27,9 +27,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     subjectId: {
-        fontSize: 13,
+        fontSize: 14,
         color: 'grey',
         fontWeight: 'bold',
+        alignSelf: 'flex-start',
         flex: 0.1
     },
     subjectTopic: {
