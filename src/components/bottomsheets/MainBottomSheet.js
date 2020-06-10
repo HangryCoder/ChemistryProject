@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet'
-import CustomBottomSheetHeader from '../CustomBottomSheetHeader';
-import SubjectBottomSheetContent from './SubjectBottomSheetContent';
 import Animated from 'react-native-reanimated';
 
 const AnimatedView = Animated.View;
@@ -11,16 +9,12 @@ const snapPoints = [
     0
 ];
 
-const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
+const MainBottomSheet = ({ bottomSheetRef, content, header }) => {
     let fall = new Animated.Value(1);
-    const [topicCount, setTopicCount] = useState(0);
 
     renderHeader = () => {
         return (<View>
-            <CustomBottomSheetHeader
-                title={subject.name}
-                subTitle={topicCount}
-                onPress={() => bottomSheetRef.current.snapTo(1)} />
+            {header}
         </View>);
     };
 
@@ -49,11 +43,6 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
         )
     };
 
-    function getCountOfSelectedSubSections(count) {
-        //console.log(count);
-        setTopicCount(count);
-    }
-
     renderContent = () => {
 
         const animatedBackgroundOpacity = Animated.sub(
@@ -69,10 +58,7 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
                         { opacity: animatedBackgroundOpacity },
                     ]}
                 />
-                <SubjectBottomSheetContent
-                    subSections={subject.sub_sections}
-                    selectedSubSectionsCountCallback={(count) => getCountOfSelectedSubSections(count)}
-                />
+                {content}
             </AnimatedView>
         );
     };
@@ -85,7 +71,6 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
                 callbackNode={fall}
                 enabledHeaderGestureInteraction={true}
                 enabledContentGestureInteraction={false}
-                enabledInnerScrolling={true}
                 snapPoints={snapPoints}
                 renderHeader={this.renderHeader}
                 renderContent={this.renderContent}
@@ -115,4 +100,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SubjectSubSectionBottomSheet;
+export default MainBottomSheet;

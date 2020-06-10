@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
 import CustomBottomSheet from '../components/bottomsheets/startPractice/CustomBottomSheet';
 import SubjectSubSectionBottomSheet from '../components/bottomsheets/subSection/SubjectSubSectionBottomSheet';
+import StartPracticeBottomSheet from '../components/bottomsheets/startPractice/StartPracticeBottomSheet';
 
 const HomeScreen = () => {
 
@@ -13,16 +14,18 @@ const HomeScreen = () => {
     const [subject, setSubject] = useState({});
 
     function fetchSubjectData(subjectData) {
-        console.log(subjectData.sub_sections.length);
+        // console.log(subjectData.sub_sections.length);
         setSubject(subjectData);
         openSubjectBottomSheet()
     };
 
     function openStartPracticeBottomSheet() {
         startPracticeBottomSheetRef.current.snapTo(0);
+        console.log("openStartPracticeBottomSheet");
     }
 
     function openSubjectBottomSheet() {
+        console.log("openSubjectBottomSheet");
         subjectBottomSheetRef.current.snapTo(0);
     };
 
@@ -46,14 +49,19 @@ const HomeScreen = () => {
                 <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
             </View>
 
+            {/* <CustomBottomSheet
+                bottomSheetRef={startPracticeBottomSheetRef}
+                style={styles.bottomSheetContainer} /> */}
+
+            <StartPracticeBottomSheet
+                bottomSheetRef={startPracticeBottomSheetRef}
+                style={styles.bottomSheetContainer} />
+
             {/* <SubjectSubSectionBottomSheet
                 bottomSheetRef={subjectBottomSheetRef}
                 subject={subject}
                 style={styles.bottomSheetContainer} /> */}
 
-            <CustomBottomSheet
-                bottomSheetRef={startPracticeBottomSheetRef}
-                style={styles.bottomSheetContainer} />
         </View>
 
     );
@@ -70,6 +78,10 @@ const styles = StyleSheet.create({
         position: 'absolute'
     },
     bottomSheetContainer: {
+        zIndex: 2,
+        position: 'absolute'
+    },
+    bottomSheetTwoContainer: {
         zIndex: 2,
         position: 'absolute'
     }
