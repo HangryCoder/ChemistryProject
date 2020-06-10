@@ -15,6 +15,7 @@ const SubjectSubSectionItem = ({ id, name, isSelected }) => {
         <Text style={styles.subSectionName}>{name}</Text>
         <CheckBox
             checked={isChecked}
+            iconRight
             iconType='material'
             checkedIcon='check-box'
             uncheckedIcon="check-box-outline-blank"
