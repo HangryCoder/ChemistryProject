@@ -23,11 +23,11 @@ const CustomBottomSheet = () => {
         </View>);
     };
 
-    // const animatedHeaderContentOpacity = Animated.interpolate(fall, {
-    //     inputRange: [0.75, 1],
-    //     outputRange: [0, 1],
-    //     extrapolate: Animated.Extrapolate.CLAMP,
-    // });
+    const animatedHeaderContentOpacity = Animated.interpolate(fall, {
+        inputRange: [0.75, 1],
+        outputRange: [0, 1],
+        extrapolate: Animated.Extrapolate.CLAMP,
+    });
 
     const renderShadow = () => {
         const animatedShadowOpacity = Animated.interpolate(fall, {
@@ -50,21 +50,21 @@ const CustomBottomSheet = () => {
 
     renderContent = () => {
 
-        // const animatedBackgroundOpacity = Animated.sub(
-        //     1,
-        //     animatedHeaderContentOpacity
-        // );
+        const animatedBackgroundOpacity = Animated.sub(
+            1,
+            animatedHeaderContentOpacity
+        );
 
         return (
-            // <AnimatedView style={[styles.contentContainer]}>
-            //     <AnimatedView
-            //         style={[
-            //             styles.contentBackground,
-            //             { opacity: animatedBackgroundOpacity },
-            //         ]}
-            //     />
-            <StartPracticeBottomSheetContent />
-            // </AnimatedView>
+            <AnimatedView style={[styles.contentContainer]}>
+                <AnimatedView
+                    style={[
+                        styles.contentBackground,
+                        { opacity: animatedBackgroundOpacity },
+                    ]}
+                />
+                <StartPracticeBottomSheetContent />
+            </AnimatedView>
         );
     };
 
@@ -86,7 +86,7 @@ const CustomBottomSheet = () => {
 
 const styles = StyleSheet.create({
     bottomSheetContainer: {
-        height: '100%'
+        flex: 1
     },
     contentContainer: {
         height: snapPoints[1] - snapPoints[0],
