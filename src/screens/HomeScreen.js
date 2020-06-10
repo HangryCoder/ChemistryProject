@@ -27,24 +27,55 @@ const HomeScreen = () => {
     };
 
     return (
-        <View style={styles.mainContainer}>
-            <View style={styles.homeContainer}>
-                <Header
-                    startPracticeCallback={() => openStartPracticeBottomSheet()} />
-                <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
-                {/* <CustomBottomSheet bottomSheetRef={startPracticeBottomSheetRef} style={styles.bottomSheetContainer} /> */}
-                <SubjectSubSectionBottomSheet
-                    bottomSheetRef={subjectBottomSheetRef}
-                    subject={subject}
-                    style={styles.bottomSheetContainer} />
-            </View>
-        </View>
-
-        //Working with dummy values
         // <View style={styles.mainContainer}>
-        //     <View style={styles.bottomSheetContainer} />
-        //     <View style={{ height: '100%', backgroundColor: 'yellow' }} />
+        //     <View style={styles.homeContainer}>
+        //         <Header
+        //             startPracticeCallback={() => openStartPracticeBottomSheet()} />
+        //         <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
+        //         {/* <CustomBottomSheet bottomSheetRef={startPracticeBottomSheetRef} style={styles.bottomSheetContainer} /> */}
+        //         <SubjectSubSectionBottomSheet
+        //             bottomSheetRef={subjectBottomSheetRef}
+        //             subject={subject}
+        //             style={styles.bottomSheetContainer} />
+        //     </View>
         // </View>
+
+        // <View style={{ backgroundColor: 'yellow', height: '100%' }}>
+        //     <View style={{ backgroundColor: 'red', flex: 1 }}>
+        //         <Header startPracticeCallback={() => openStartPracticeBottomSheet()} />
+        //     </View>
+        //     <View style={{ backgroundColor: 'blue', height: 300 }}></View>
+
+        // </View>
+
+        <View style={{ flex: 1 }}>
+            <View style={{
+                width: '100%',
+                height: '100%', zIndex: 1,
+                position: 'absolute',
+                backgroundColor: 'red'
+            }} >
+                <Header startPracticeCallback={() => openStartPracticeBottomSheet()} />
+                <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
+            </View>
+
+            <SubjectSubSectionBottomSheet
+                bottomSheetRef={subjectBottomSheetRef}
+                subject={subject}
+                style={{
+                    zIndex: 2,
+                    position: 'absolute',
+                    backgroundColor: 'blue'
+                }} />
+
+            {/* <View style={{
+                width: 200,
+                height: 200,
+                zIndex: 2,
+                position: 'absolute',
+                backgroundColor: 'blue'
+            }} /> */}
+        </View>
 
     );
 };
