@@ -15,15 +15,12 @@ const SubjectBottomSheetContent = ({ subSections,
         );
     }
 
-    const [refresh, setRefresh] = useState(false);
-
     return (
         <View style={styles.subjectMainContainer}>
             <View style={styles.flatListContainer}>
                 <FlatList
                     ref={flatListRef}
                     data={subSections}
-                    extraData={refresh}
                     renderItem={({ item }) => <SubjectSubSectionItem
                         id={item.id}
                         name={item.name}
@@ -40,7 +37,7 @@ const SubjectBottomSheetContent = ({ subSections,
                     ItemSeparatorComponent={() => flatListItemSeparator()}
                 />
             </View>
-            <CustomBottomSheetButton title="Next" onPress={() => setRefresh(true)} />
+            <CustomBottomSheetButton title="Next" />
         </View>
     )
 };
