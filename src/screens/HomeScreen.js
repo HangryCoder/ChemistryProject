@@ -10,12 +10,18 @@ const HomeScreen = () => {
     let bottomSheetRef = React.createRef();
     let secondBottomSheet = React.createRef();
 
+    fetchSubjectData = (subjectData) => {
+        console.log(subjectData);
+    };
+
     return (
         <View style={styles.mainContainer}>
             <View style={styles.homeContainer}>
                 <Header
                     subjectBottomSheetRef={bottomSheetRef} />
-                <SubjectList bottomSheetRef={secondBottomSheet} />
+                <SubjectList bottomSheetRef={secondBottomSheet}
+                    fetchSubjectData={this.fetchSubjectData}
+                />
                 {/* <CustomBottomSheet bottomSheetRef={bottomSheetRef} style={styles.bottomSheetContainer} /> */}
                 <SubjectSubSectionBottomSheet bottomSheetRef={secondBottomSheet} style={styles.bottomSheetContainer} />
             </View>

@@ -2,9 +2,9 @@ import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
 
-const SubjectList = ({ bottomSheetRef }) => {
+const SubjectList = ({ bottomSheetRef, fetchSubjectData }) => {
     const subjectData = require('../../assets/JSONFiles/SubjectData.json');
-    const subjects = subjectData.results;//JSON.parse(subjectData).results;
+    const subjects = subjectData.results;
 
     flatListItemSeparator = () => {
         return (
@@ -22,7 +22,10 @@ const SubjectList = ({ bottomSheetRef }) => {
                     name={item.name}
                     id={item.id}
                     xp={item.xp}
-                    onPress={() => bottomSheetRef.current.snapTo(0)}
+                    onPress={() => {
+                        fetchSubjectData(item);
+                        bottomSheetRef.current.snapTo(0)
+                    }}
                 />}
                 keyExtractor={subject => subject.id}
                 ItemSeparatorComponent={this.flatListItemSeparator}
