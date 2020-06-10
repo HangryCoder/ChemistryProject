@@ -27,7 +27,6 @@ import StartPracticeBottomSheetContent from './startPractice/StartPracticeBottom
 
 const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
     const [topicCount, setTopicCount] = useState(0);
-
     const flatListRef = React.createRef();
 
     function getCountOfSelectedSubSections(count) {
@@ -65,10 +64,9 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
             }
             header={<CustomBottomSheetHeader
                 title={subject.name}
-                subTitle={topicCount}
+                subTitle={subject.sub_sections != null ? subject.sub_sections.length : topicCount}
                 onPress={() => bottomSheetRef.current.snapTo(1)} />}
             onBottomSheetCloseEnd={() => {
-                console.log("Bottom Sheet closing")
                 flatListRef.current.scrollToIndex({ animated: true, index: 0 })
             }
             }

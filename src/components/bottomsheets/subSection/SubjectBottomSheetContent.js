@@ -16,7 +16,7 @@ const SubjectBottomSheetContent = ({ subSections,
     }
 
     if (subSections != null) {
-        selectedSubSectionsCountCallback(subSections.length);
+        // selectedSubSectionsCountCallback(subSections.length);
     }
 
     return (
