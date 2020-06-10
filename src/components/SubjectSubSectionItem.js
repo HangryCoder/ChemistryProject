@@ -2,21 +2,25 @@ import React, { useState } from 'react';
 import {
     View,
     Text,
-    CheckBox,
     StyleSheet
 } from 'react-native';
+import { CheckBox } from 'react-native-elements'
 
 const SubjectSubSectionItem = ({ id, name, isSelected }) => {
 
-    const [isChecked, setChecked] = useState(true);
+    const [isChecked, setChecked] = useState(isSelected);
 
     return (<View style={styles.subSectionContainer}>
         <Text style={styles.subSectionId}>{id}</Text>
         <Text style={styles.subSectionName}>{name}</Text>
         <CheckBox
-            value={isChecked}
-            onValueChange={() => setChecked(!isChecked)}
-            checkedColor='red' />
+            checked={isChecked}
+            iconType='material'
+            checkedIcon='check-box'
+            uncheckedIcon="check-box-outline-blank"
+            onPress={() => setChecked(!isChecked)}
+            checkedColor={'#ffb939'}
+        />
     </View>);
 };
 
@@ -39,8 +43,6 @@ const styles = StyleSheet.create({
         color: '#49545d',
         alignSelf: 'center',
         flex: 0.9
-    },
-    subSectionCheckbox: {
     }
 });
 

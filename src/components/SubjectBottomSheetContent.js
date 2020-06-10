@@ -11,7 +11,7 @@ const SubjectBottomSheetContent = () => {
                 style={styles.flatListSeparator}
             />
         );
-    }
+    };
 
     const subSections = [
         { id: 1, name: "General Topics and Mole Concepts", isSelected: true },
