@@ -25,7 +25,9 @@ const SubjectBottomSheetContent = ({ subSections, selectedSubSectionsCountCallba
                     renderItem={({ item }) => <SubjectSubSectionItem
                         id={item.id}
                         name={item.name}
-                        isSelected={true} />}
+                        isSelected={true}
+                        isCheckedCallback={(isChecked) => { console.log(isChecked) }}
+                    />}
                     keyExtractor={subSection => subSection.name}
                     ItemSeparatorComponent={() => flatListItemSeparator()}
                 />
