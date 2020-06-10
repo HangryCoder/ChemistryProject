@@ -11,7 +11,7 @@ const StartPracticeBottomSheet = ({ bottomSheetRef }) => {
             }
             header={<CustomBottomSheetHeader
                 title="Chemistry"
-                subTitle="7 Topics"
+                subTitle="7"
                 onPress={() => bottomSheetRef.current.snapTo(1)} />} />
     )
 };

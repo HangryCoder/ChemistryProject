@@ -3,7 +3,11 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import SubjectSubSectionItem from './SubjectSubSectionItem';
 
-const SubjectBottomSheetContent = ({ subSections, selectedSubSectionsCountCallback }) => {
+const SubjectBottomSheetContent = ({ subSections,
+    selectedSubSectionsCountCallback,
+    bottomSheetCloseCallback }) => {
+
+    const flatListRef = React.createRef();
 
     function flatListItemSeparator() {
         return (

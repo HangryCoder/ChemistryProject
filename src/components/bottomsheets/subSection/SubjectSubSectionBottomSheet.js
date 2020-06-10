@@ -21,7 +21,9 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
             header={<CustomBottomSheetHeader
                 title={subject.name}
                 subTitle={topicCount}
-                onPress={() => bottomSheetRef.current.snapTo(1)} />} />
+                onPress={() => bottomSheetRef.current.snapTo(1)} />}
+            onBottomSheetCloseEnd={() => console.log("Bottom Sheet closing")}
+        />
     )
 };
 

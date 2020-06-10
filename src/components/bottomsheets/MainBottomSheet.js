@@ -9,14 +9,14 @@ const snapPoints = [
     0
 ];
 
-const MainBottomSheet = ({ bottomSheetRef, content, header }) => {
+const MainBottomSheet = ({ bottomSheetRef, content, header, onBottomSheetCloseEnd }) => {
     let fall = new Animated.Value(1);
 
-    renderHeader = () => {
+    function renderHeader() {
         return (<View>
             {header}
         </View>);
-    };
+    }
 
     const animatedHeaderContentOpacity = Animated.interpolate(fall, {
         inputRange: [0.75, 1],
@@ -43,7 +43,7 @@ const MainBottomSheet = ({ bottomSheetRef, content, header }) => {
         )
     };
 
-    renderContent = () => {
+    function renderContent() {
 
         const animatedBackgroundOpacity = Animated.sub(
             1,
@@ -61,7 +61,7 @@ const MainBottomSheet = ({ bottomSheetRef, content, header }) => {
                 {content}
             </AnimatedView>
         );
-    };
+    }
 
     return (
         <View style={styles.bottomSheetContainer} >
@@ -72,8 +72,9 @@ const MainBottomSheet = ({ bottomSheetRef, content, header }) => {
                 enabledHeaderGestureInteraction={true}
                 enabledContentGestureInteraction={false}
                 snapPoints={snapPoints}
-                renderHeader={this.renderHeader}
-                renderContent={this.renderContent}
+                renderHeader={() => renderHeader()}
+                renderContent={() => renderContent()}
+                onCloseEnd={onBottomSheetCloseEnd}
             />
             {renderShadow()}
         </View>
