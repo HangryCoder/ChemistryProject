@@ -23,16 +23,17 @@ const SubjectBottomSheetContent = () => {
 
     return (
         <View style={styles.subjectMainContainer}>
-            <FlatList
-                data={subSections}
-                renderItem={({ item }) => <SubjectSubSectionItem
-                    id={item.id}
-                    name={item.name}
-                    isSelected={item.isSelected} />}
-                keyExtractor={subSection => subSection.id}
-                ItemSeparatorComponent={this.flatListItemSeparator}
-            />
-
+            <View style={styles.flatListContainer}>
+                <FlatList
+                    data={subSections}
+                    renderItem={({ item }) => <SubjectSubSectionItem
+                        id={item.id}
+                        name={item.name}
+                        isSelected={item.isSelected} />}
+                    keyExtractor={subSection => subSection.id}
+                    ItemSeparatorComponent={this.flatListItemSeparator}
+                />
+            </View>
             <CustomBottomSheetButton title="Next" />
         </View>
     )
@@ -42,7 +43,12 @@ const styles = StyleSheet.create({
     subjectMainContainer: {
         backgroundColor: 'white',
         flexDirection: 'column',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        height: '100%'
+    },
+    flatListContainer: {
+        height: 250,
+        marginBottom: 20
     },
     flatListSeparator: {
         height: 1,
