@@ -5,7 +5,7 @@ import ImageButton from '../../ImageButton';
 
 const StartPracticeCustomBottomSheetContent = () => {
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(10);
     const step = 5;
 
     function incrementCount() {
@@ -13,7 +13,7 @@ const StartPracticeCustomBottomSheetContent = () => {
     }
 
     function decrementCount() {
-        if (count > 0) {
+        if (count > 10) {
             setCount(count - step)
         }
     }
