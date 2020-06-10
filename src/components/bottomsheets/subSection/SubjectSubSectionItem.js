@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { CheckBox } from 'react-native-elements'
 
-const SubjectSubSectionItem = ({ id, name, isSelected, isCheckedCallback }) => {
+const SubjectSubSectionItem = ({ id, name, isSelected }) => {
 
     const [isChecked, setChecked] = useState(isSelected);
 
@@ -20,7 +20,6 @@ const SubjectSubSectionItem = ({ id, name, isSelected, isCheckedCallback }) => {
             checkedIcon='check-box'
             uncheckedIcon="check-box-outline-blank"
             onPress={() => {
-                isCheckedCallback(!isChecked)
                 setChecked(!isChecked)
             }}
             checkedColor={'#ffb939'}

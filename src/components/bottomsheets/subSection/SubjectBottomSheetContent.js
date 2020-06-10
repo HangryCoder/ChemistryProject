@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import SubjectSubSectionItem from './SubjectSubSectionItem';
@@ -26,7 +26,6 @@ const SubjectBottomSheetContent = ({ subSections, selectedSubSectionsCountCallba
                         id={item.id}
                         name={item.name}
                         isSelected={true}
-                        isCheckedCallback={(isChecked) => { console.log(isChecked) }}
                     />}
                     keyExtractor={subSection => subSection.name}
                     ItemSeparatorComponent={() => flatListItemSeparator()}
