@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import SubjectSubSectionItem from './SubjectSubSectionItem';
@@ -15,12 +15,15 @@ const SubjectBottomSheetContent = ({ subSections,
         );
     }
 
+    const [refresh, setRefresh] = useState(false);
+
     return (
         <View style={styles.subjectMainContainer}>
             <View style={styles.flatListContainer}>
                 <FlatList
                     ref={flatListRef}
                     data={subSections}
+                    extraData={refresh}
                     renderItem={({ item }) => <SubjectSubSectionItem
                         id={item.id}
                         name={item.name}
@@ -37,7 +40,7 @@ const SubjectBottomSheetContent = ({ subSections,
                     ItemSeparatorComponent={() => flatListItemSeparator()}
                 />
             </View>
-            <CustomBottomSheetButton title="Next" />
+            <CustomBottomSheetButton title="Next" onPress={() => setRefresh(true)} />
         </View>
     )
 };

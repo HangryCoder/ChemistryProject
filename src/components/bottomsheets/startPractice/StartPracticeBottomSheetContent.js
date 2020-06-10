@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     },
     numberOfQuestions: {
         fontSize: 60,
+        color: '#49545d',
         fontWeight: 'bold'
     },
     questions: {

@@ -66,7 +66,9 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
                 title={subject.name}
                 subTitle={topicCount}
                 onPress={() => bottomSheetRef.current.snapTo(1)} />}
-            onBottomSheetOpenStart={() => setTopicCount(subject.sub_sections.length)}
+            onBottomSheetOpenStart={() => {
+                setTopicCount(subject.sub_sections.length)
+            }}
             onBottomSheetCloseEnd={() => {
                 flatListRef.current.scrollToIndex({ animated: true, index: 0 })
             }
