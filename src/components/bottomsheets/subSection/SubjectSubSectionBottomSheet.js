@@ -18,7 +18,7 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
         return (<View>
             <CustomBottomSheetHeader
                 title={subject.name}
-                subTitle="10"
+                subTitle="10 topics"
                 onPress={() => bottomSheetRef.current.snapTo(1)} />
         </View>);
     };
@@ -63,7 +63,8 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
                         { opacity: animatedBackgroundOpacity },
                     ]}
                 />
-                <SubjectBottomSheetContent />
+                <SubjectBottomSheetContent
+                    subSections={subject.sub_sections} />
             </AnimatedView>
         );
     };

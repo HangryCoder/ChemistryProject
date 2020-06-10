@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import SubjectSubSectionItem from './SubjectSubSectionItem';
 
-const SubjectBottomSheetContent = () => {
+const SubjectBottomSheetContent = ({ subSections }) => {
 
     flatListItemSeparator = () => {
         return (
@@ -13,14 +13,6 @@ const SubjectBottomSheetContent = () => {
         );
     };
 
-    const subSections = [
-        { id: 1, name: "General Topics and Mole Concepts", isSelected: true },
-        { id: 2, name: "Gases and Liquid States", isSelected: true },
-        { id: 3, name: "Atomic Structure", isSelected: true },
-        { id: 4, name: "Chemical Bonding", isSelected: true },
-        { id: 5, name: "Energetics and Thermodynamics", isSelected: true }
-    ];
-
     return (
         <View style={styles.subjectMainContainer}>
             <View style={styles.flatListContainer}>
@@ -29,8 +21,8 @@ const SubjectBottomSheetContent = () => {
                     renderItem={({ item }) => <SubjectSubSectionItem
                         id={item.id}
                         name={item.name}
-                        isSelected={item.isSelected} />}
-                    keyExtractor={subSection => subSection.id}
+                        isSelected={true} />}
+                    keyExtractor={subSection => subSection.name}
                     ItemSeparatorComponent={this.flatListItemSeparator}
                 />
             </View>
