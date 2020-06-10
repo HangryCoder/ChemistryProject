@@ -8,11 +8,21 @@ const StartPracticeCustomBottomSheetContent = () => {
     const [count, setCount] = useState(0);
     const step = 5;
 
+    function incrementCount() {
+        setCount(count + step)
+    }
+
+    function decrementCount() {
+        if (count > 0) {
+            setCount(count - step)
+        }
+    }
+
     return (
         <View style={styles.startPracticeMainContainer}>
             <View style={styles.startPracticeContainer}>
                 <ImageButton
-                    onPress={() => setCount(count - step)}
+                    onPress={() => decrementCount()}
                     icon={require('../../../../assets/minus.png')}
                 />
                 <View style={styles.questionContainer}>
@@ -20,7 +30,7 @@ const StartPracticeCustomBottomSheetContent = () => {
                     <Text style={styles.questions}>Questions</Text>
                 </View>
                 <ImageButton
-                    onPress={() => setCount(count + step)}
+                    onPress={() => incrementCount()}
                     icon={require('../../../../assets/add.png')}
                 />
             </View>
