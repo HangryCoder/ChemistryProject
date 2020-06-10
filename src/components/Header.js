@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Image, View, Text, StyleSheet } from 'react-native';
 import HeaderButton from './HeaderButton';
 
-const Header = ({ subjectBottomSheetRef }) => {
+const Header = ({ startPracticeCallback }) => {
     return (<View style={styles.headerContainer}>
         <Image
             style={styles.headerImage}
@@ -12,7 +12,7 @@ const Header = ({ subjectBottomSheetRef }) => {
         <Text style={styles.headerNumberOfTopics}>3 topics</Text>
         <HeaderButton
             title="Start practice"
-            onPress={() => subjectBottomSheetRef.current.snapTo(0)}
+            onPress={startPracticeCallback}
         />
     </View >)
 };

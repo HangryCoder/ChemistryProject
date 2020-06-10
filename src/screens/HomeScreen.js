@@ -7,26 +7,30 @@ import SubjectSubSectionBottomSheet from '../components/bottomsheets/subSection/
 
 const HomeScreen = () => {
 
-    let bottomSheetRef = React.createRef();
-    let secondBottomSheet = React.createRef();
+    let startPracticeBottomSheetRef = React.createRef();
+    let subjectBottomSheetRef = React.createRef();
 
-    fetchSubjectData = (subjectData) => {
+    function fetchSubjectData(subjectData) {
         console.log(subjectData);
         openSubjectBottomSheet()
     };
 
+    function openStartPracticeBottomSheet() {
+        startPracticeBottomSheetRef.current.snapTo(0);
+    }
+
     function openSubjectBottomSheet() {
-        secondBottomSheet.current.snapTo(0);
+        subjectBottomSheetRef.current.snapTo(0);
     };
 
     return (
         <View style={styles.mainContainer}>
             <View style={styles.homeContainer}>
                 <Header
-                    subjectBottomSheetRef={bottomSheetRef} />
-                <SubjectList fetchSubjectData={this.fetchSubjectData} />
-                {/* <CustomBottomSheet bottomSheetRef={bottomSheetRef} style={styles.bottomSheetContainer} /> */}
-                <SubjectSubSectionBottomSheet bottomSheetRef={secondBottomSheet} style={styles.bottomSheetContainer} />
+                    startPracticeCallback={() => openStartPracticeBottomSheet()} />
+                <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
+                {/* <CustomBottomSheet bottomSheetRef={startPracticeBottomSheetRef} style={styles.bottomSheetContainer} /> */}
+                <SubjectSubSectionBottomSheet bottomSheetRef={subjectBottomSheetRef} style={styles.bottomSheetContainer} />
             </View>
         </View>
 
