@@ -2,58 +2,37 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
-import SubjectSubSectionBottomSheet from '../components/bottomsheets/subSection/SubjectSubSectionBottomSheet';
-import StartPracticeBottomSheet from '../components/bottomsheets/startPractice/StartPracticeBottomSheet';
+import HomeScreenBottomSheet from '../components/bottomsheets/HomeScreenBottomSheet';
 
 const HomeScreen = () => {
 
-    let startPracticeBottomSheetRef = React.createRef();
-    let subjectBottomSheetRef = React.createRef();
-
+    let bottomSheetRef = React.createRef();
     const [subject, setSubject] = useState({});
 
     function fetchSubjectData(subjectData) {
-        // console.log(subjectData.sub_sections.length);
         setSubject(subjectData);
         openSubjectBottomSheet()
     };
 
     function openStartPracticeBottomSheet() {
-        startPracticeBottomSheetRef.current.snapTo(0);
+        setSubject(null);
+        bottomSheetRef.current.snapTo(0);
         console.log("openStartPracticeBottomSheet");
     }
 
     function openSubjectBottomSheet() {
         console.log("openSubjectBottomSheet");
-        subjectBottomSheetRef.current.snapTo(0);
+        bottomSheetRef.current.snapTo(0);
     };
 
     return (
-        // <View style={styles.mainContainer}>
-        //     <View style={styles.homeContainer}>
-        //         <Header
-        //             startPracticeCallback={() => openStartPracticeBottomSheet()} />
-        //         <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
-        //         {/* <CustomBottomSheet bottomSheetRef={startPracticeBottomSheetRef} style={styles.bottomSheetContainer} /> */}
-        //         <SubjectSubSectionBottomSheet
-        //             bottomSheetRef={subjectBottomSheetRef}
-        //             subject={subject}
-        //             style={styles.bottomSheetContainer} />
-        //     </View>
-        // </View>
-
         <View style={styles.mainContainer}>
             <View style={styles.homeContainer} >
                 <Header startPracticeCallback={() => openStartPracticeBottomSheet()} />
                 <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
             </View>
-            {/* 
-            <StartPracticeBottomSheet
-                bottomSheetRef={startPracticeBottomSheetRef}
-                style={styles.bottomSheetContainer} /> */}
-
-            <SubjectSubSectionBottomSheet
-                bottomSheetRef={subjectBottomSheetRef}
+            <HomeScreenBottomSheet
+                bottomSheetRef={bottomSheetRef}
                 subject={subject}
                 style={styles.bottomSheetContainer} />
 
@@ -73,10 +52,6 @@ const styles = StyleSheet.create({
         position: 'absolute'
     },
     bottomSheetContainer: {
-        zIndex: 2,
-        position: 'absolute'
-    },
-    bottomSheetTwoContainer: {
         zIndex: 2,
         position: 'absolute'
     }
