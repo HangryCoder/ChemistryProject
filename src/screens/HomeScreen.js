@@ -46,18 +46,14 @@ const HomeScreen = () => {
                 <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
             </View>
 
-            <SubjectSubSectionBottomSheet
+            {/* <SubjectSubSectionBottomSheet
                 bottomSheetRef={subjectBottomSheetRef}
                 subject={subject}
-                style={styles.bottomSheetContainer} />
+                style={styles.bottomSheetContainer} /> */}
 
-            {/* <CustomBottomSheet
+            <CustomBottomSheet
                 bottomSheetRef={startPracticeBottomSheetRef}
-                style={{
-                    zIndex: 3,
-                    position: 'absolute',
-                    backgroundColor: 'blue'
-                }} /> */}
+                style={styles.bottomSheetContainer} />
         </View>
 
     );
