@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Header from '../components/Header';
 import SubjectList from '../components/SubjectList';
@@ -10,8 +10,11 @@ const HomeScreen = () => {
     let startPracticeBottomSheetRef = React.createRef();
     let subjectBottomSheetRef = React.createRef();
 
+    const [subject, setSubject] = useState({});
+
     function fetchSubjectData(subjectData) {
-        console.log(subjectData);
+        console.log(subjectData.sub_sections.length);
+        setSubject(subjectData);
         openSubjectBottomSheet()
     };
 
@@ -30,7 +33,10 @@ const HomeScreen = () => {
                     startPracticeCallback={() => openStartPracticeBottomSheet()} />
                 <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
                 {/* <CustomBottomSheet bottomSheetRef={startPracticeBottomSheetRef} style={styles.bottomSheetContainer} /> */}
-                <SubjectSubSectionBottomSheet bottomSheetRef={subjectBottomSheetRef} style={styles.bottomSheetContainer} />
+                <SubjectSubSectionBottomSheet
+                    bottomSheetRef={subjectBottomSheetRef}
+                    subject={subject}
+                    style={styles.bottomSheetContainer} />
             </View>
         </View>
 

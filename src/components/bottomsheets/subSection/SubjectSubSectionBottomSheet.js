@@ -11,14 +11,14 @@ const snapPoints = [
     0
 ];
 
-const SubjectSubSectionBottomSheet = ({ bottomSheetRef }) => {
+const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
     let fall = new Animated.Value(1);
 
     renderHeader = () => {
         return (<View>
             <CustomBottomSheetHeader
-                title="Physical Chemistry"
-                subTitle="7 Topics"
+                title={subject.name}
+                subTitle="10"
                 onPress={() => bottomSheetRef.current.snapTo(1)} />
         </View>);
     };
