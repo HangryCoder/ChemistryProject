@@ -40,21 +40,8 @@ const HomeScreen = () => {
         //     </View>
         // </View>
 
-        // <View style={{ backgroundColor: 'yellow', height: '100%' }}>
-        //     <View style={{ backgroundColor: 'red', flex: 1 }}>
-        //         <Header startPracticeCallback={() => openStartPracticeBottomSheet()} />
-        //     </View>
-        //     <View style={{ backgroundColor: 'blue', height: 300 }}></View>
-
-        // </View>
-
-        <View style={{ flex: 1 }}>
-            <View style={{
-                width: '100%',
-                height: '100%', zIndex: 1,
-                position: 'absolute',
-                backgroundColor: 'red'
-            }} >
+        <View style={styles.mainContainer}>
+            <View style={styles.homeContainer} >
                 <Header startPracticeCallback={() => openStartPracticeBottomSheet()} />
                 <SubjectList fetchSubjectData={(subject) => fetchSubjectData(subject)} />
             </View>
@@ -62,19 +49,15 @@ const HomeScreen = () => {
             <SubjectSubSectionBottomSheet
                 bottomSheetRef={subjectBottomSheetRef}
                 subject={subject}
+                style={styles.bottomSheetContainer} />
+
+            {/* <CustomBottomSheet
+                bottomSheetRef={startPracticeBottomSheetRef}
                 style={{
-                    zIndex: 2,
+                    zIndex: 3,
                     position: 'absolute',
                     backgroundColor: 'blue'
-                }} />
-
-            {/* <View style={{
-                width: 200,
-                height: 200,
-                zIndex: 2,
-                position: 'absolute',
-                backgroundColor: 'blue'
-            }} /> */}
+                }} /> */}
         </View>
 
     );
@@ -82,15 +65,17 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     mainContainer: {
-        flex: 1,
-        flexDirection: 'column'
+        flex: 1
     },
     homeContainer: {
-        flex: 1,
-        flexDirection: 'column'
+        width: '100%',
+        height: '100%',
+        zIndex: 1,
+        position: 'absolute'
     },
     bottomSheetContainer: {
-
+        zIndex: 2,
+        position: 'absolute'
     }
 });
 
