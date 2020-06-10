@@ -74,6 +74,7 @@ const CustomBottomSheet = () => {
                 ref={bottomSheetRef}
                 initialSnap={0}
                 callbackNode={fall}
+                enabledContentGestureInteraction={false}
                 snapPoints={snapPoints}
                 renderHeader={this.renderHeader}
                 renderContent={this.renderContent}

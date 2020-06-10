@@ -12,7 +12,7 @@ const HomeScreen = () => {
                 <Header />
                 <SubjectList />
             </View> */}
-            <SubjectBottomSheetContent style={styles.bottomSheetContainer} />
+            <CustomBottomSheet style={styles.bottomSheetContainer} />
         </View>
 
         //Working with dummy values
