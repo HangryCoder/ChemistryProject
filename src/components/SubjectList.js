@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
 
-const SubjectList = () => {
+const SubjectList = ({ bottomSheetRef }) => {
     const subjectData = require('../../assets/JSONFiles/SubjectData.json');
     const subjects = subjectData.results;//JSON.parse(subjectData).results;
 
@@ -22,6 +22,7 @@ const SubjectList = () => {
                     name={item.name}
                     id={item.id}
                     xp={item.xp}
+                    onPress={() => bottomSheetRef.current.snapTo(0)}
                 />}
                 keyExtractor={subject => subject.id}
                 ItemSeparatorComponent={this.flatListItemSeparator}

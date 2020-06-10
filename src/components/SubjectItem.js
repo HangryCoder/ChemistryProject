@@ -6,14 +6,16 @@ import {
 } from 'react-native';
 import SubjectButton from './SubjectButton';
 
-const SubjectItem = ({ id, name, xp }) => {
+const SubjectItem = ({ id, name, xp, onPress }) => {
     return (<View style={styles.subjectContainer}>
         <Text style={styles.subjectId}>{id}</Text>
         <View style={styles.subjectTopicAndPoints}>
             <Text style={styles.subjectTopic}>{name}</Text>
             <Text style={styles.subjectPoints}>{xp} XP</Text>
         </View>
-        <SubjectButton style={styles.SubjectButton} />
+        <SubjectButton
+            style={styles.SubjectButton}
+            onPress={onPress} />
     </View>);
 };
 

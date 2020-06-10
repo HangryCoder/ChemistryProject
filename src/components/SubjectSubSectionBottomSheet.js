@@ -2,7 +2,6 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet'
 import CustomBottomSheetHeader from './CustomBottomSheetHeader';
-import StartPracticeBottomSheetContent from './StartPracticeBottomSheetContent';
 import SubjectBottomSheetContent from './SubjectBottomSheetContent';
 import Animated from 'react-native-reanimated';
 
@@ -12,7 +11,7 @@ const snapPoints = [
     0
 ];
 
-const CustomBottomSheet = ({ bottomSheetRef }) => {
+const SubjectSubSectionBottomSheet = ({ bottomSheetRef }) => {
     let fall = new Animated.Value(1);
 
     renderHeader = () => {
@@ -64,7 +63,7 @@ const CustomBottomSheet = ({ bottomSheetRef }) => {
                         { opacity: animatedBackgroundOpacity },
                     ]}
                 />
-                <StartPracticeBottomSheetContent />
+                <SubjectBottomSheetContent />
             </AnimatedView>
         );
     };
@@ -77,6 +76,7 @@ const CustomBottomSheet = ({ bottomSheetRef }) => {
                 callbackNode={fall}
                 enabledHeaderGestureInteraction={true}
                 enabledContentGestureInteraction={false}
+                enabledInnerScrolling={true}
                 snapPoints={snapPoints}
                 renderHeader={this.renderHeader}
                 renderContent={this.renderContent}
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CustomBottomSheet;
+export default SubjectSubSectionBottomSheet;
