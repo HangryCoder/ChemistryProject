@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
     homeContainer: {
         width: '100%',
         height: '100%',
-        zIndex: 1,
+        zIndex: -1,
         position: 'absolute'
     },
     bottomSheetContainer: {
-        zIndex: 2,
+        zIndex: 1,
         position: 'absolute'
     }
 });

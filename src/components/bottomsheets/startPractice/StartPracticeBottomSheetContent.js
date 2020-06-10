@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     startPracticeMainContainer: {
         backgroundColor: 'white',
         flexDirection: 'column',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        height: '100%'
     },
     startPracticeContainer: {
         flexDirection: 'row',

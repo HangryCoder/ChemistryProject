@@ -43,8 +43,7 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     flatListContainer: {
-        height: 250,
-        marginBottom: 20
+        height: '80%'
     },
     flatListSeparator: {
         height: 1,
