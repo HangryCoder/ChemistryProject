@@ -6,15 +6,22 @@ import CustomBottomSheet from '../components/CustomBottomSheet';
 
 const HomeScreen = () => {
     return (
-        <View style={styles.homeContainer}>
-            <Header />
-            <SubjectList />
+        <View style={styles.mainContainer}>
+            {/* <View style={styles.homeContainer}>
+                <Header />
+                <SubjectList />
+            </View> */}
             <CustomBottomSheet />
         </View>
+
     );
 };
 
 const styles = StyleSheet.create({
+    mainContainer: {
+        flex: 1,
+        flexDirection: 'column'
+    },
     homeContainer: {
         flex: 1,
         flexDirection: 'column'
