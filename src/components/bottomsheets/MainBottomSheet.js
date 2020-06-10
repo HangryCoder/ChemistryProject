@@ -8,13 +8,13 @@ const snapPoints = [
     450,
     0
 ];
+let fall = new Animated.Value(1);
 
 const MainBottomSheet = ({ bottomSheetRef,
     content,
     header,
     onBottomSheetOpenStart,
     onBottomSheetCloseEnd }) => {
-    let fall = new Animated.Value(1);
 
     function renderHeader() {
         return (<View>
