@@ -13,13 +13,13 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
 
     function displayAppropriateBottomSheet() {
         if (subject == null) {
-            return displayStartPractice()
+            return displayStartPracticeBottomSheet()
         } else {
-            return displaySubjectSubSection()
+            return displaySubjectSubSectionBottomSheet()
         }
     }
 
-    function displayStartPractice() {
+    function displayStartPracticeBottomSheet() {
         return (<MainBottomSheet
             bottomSheetRef={bottomSheetRef}
             content={<StartPracticeBottomSheetContent />
@@ -31,7 +31,7 @@ const HomeScreenBottomSheet = ({ bottomSheetRef, subject }) => {
         )
     }
 
-    function displaySubjectSubSection() {
+    function displaySubjectSubSectionBottomSheet() {
         return (<MainBottomSheet
             bottomSheetRef={bottomSheetRef}
             content={<SubjectBottomSheetContent
