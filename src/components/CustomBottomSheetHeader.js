@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import ImageButton from './ImageButton';
 
 const CustomBottomSheetHeader = ({ title, subTitle, onPress }) => {
     return (
@@ -13,11 +14,10 @@ const CustomBottomSheetHeader = ({ title, subTitle, onPress }) => {
                 </Text>
             </View>
             <View style={styles.imageContainer}>
-                <TouchableOpacity onPress={onPress}>
-                    <Image
-                        style={styles.cancelIcon}
-                        source={require('../../assets/close.png')} />
-                </TouchableOpacity>
+                <ImageButton
+                    icon={require('../../assets/close.png')}
+                    onPress={onPress}
+                />
             </View>
         </View >
     )

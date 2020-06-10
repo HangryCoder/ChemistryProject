@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const IncrementDecrementButton = ({ icon, onPress }) => {
+const ImageButton = ({ icon, onPress }) => {
     return (
         <TouchableOpacity
             style={styles.imageContainer}
@@ -13,7 +13,7 @@ const IncrementDecrementButton = ({ icon, onPress }) => {
 
 const styles = StyleSheet.create({
     imageContainer: {
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     imageButton: {
         width: 20,
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default IncrementDecrementButton;
+export default ImageButton;
