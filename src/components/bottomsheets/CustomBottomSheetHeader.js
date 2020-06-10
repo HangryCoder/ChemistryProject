@@ -10,7 +10,7 @@ const CustomBottomSheetHeader = ({ title, subTitle, onPress }) => {
                     style={styles.headerTitle}>{title}
                 </Text>
                 <Text
-                    style={styles.headerSubTitle}>{subTitle}
+                    style={styles.headerSubTitle}>{subTitle} topics
                 </Text>
             </View>
             <View style={styles.imageContainer}>

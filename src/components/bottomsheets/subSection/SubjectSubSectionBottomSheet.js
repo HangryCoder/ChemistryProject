@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet'
 import CustomBottomSheetHeader from '../CustomBottomSheetHeader';
@@ -13,12 +13,13 @@ const snapPoints = [
 
 const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
     let fall = new Animated.Value(1);
+    const [topicCount, setTopicCount] = useState(0);
 
     renderHeader = () => {
         return (<View>
             <CustomBottomSheetHeader
                 title={subject.name}
-                subTitle="10 topics"
+                subTitle={topicCount}
                 onPress={() => bottomSheetRef.current.snapTo(1)} />
         </View>);
     };
@@ -48,6 +49,11 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
         )
     };
 
+    function getCountOfSelectedSubSections(count) {
+        console.log(count);
+        setTopicCount(count);
+    }
+
     renderContent = () => {
 
         const animatedBackgroundOpacity = Animated.sub(
@@ -64,7 +70,9 @@ const SubjectSubSectionBottomSheet = ({ bottomSheetRef, subject }) => {
                     ]}
                 />
                 <SubjectBottomSheetContent
-                    subSections={subject.sub_sections} />
+                    subSections={subject.sub_sections}
+                    selectedSubSectionsCountCallback={(count) => getCountOfSelectedSubSections(count)}
+                />
             </AnimatedView>
         );
     };
