@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import ImageButton from '../ImageButton';
+import ImageButton from './ImageButton';
 
 const CustomBottomSheetHeader = ({ title, subTitle, onPress }) => {
     return (

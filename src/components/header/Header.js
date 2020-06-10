@@ -6,7 +6,7 @@ const Header = ({ startPracticeCallback }) => {
     return (<View style={styles.headerContainer}>
         <Image
             style={styles.headerImage}
-            source={require("../../assets/chemistry_flask.png")}>
+            source={require("../../../assets/chemistry_flask.png")}>
         </Image>
         <Text style={styles.headerTitle}>Chemistry</Text>
         <Text style={styles.headerNumberOfTopics}>3 topics</Text>

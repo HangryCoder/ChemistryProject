@@ -7,7 +7,7 @@ const HeaderButton = ({ title, onPress }) => {
             <View style={styles.buttonBackground}>
                 <Image
                     style={styles.buttonImage}
-                    source={require("../../assets/practice_icon.png")}>
+                    source={require("../../../assets/practice_icon.png")}>
                 </Image>
                 <Text
                     style={styles.buttonText}>{title}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
-import ImageButton from '../../ImageButton';
+import ImageButton from '../ImageButton';
 
 const StartPracticeCustomBottomSheetContent = () => {
 

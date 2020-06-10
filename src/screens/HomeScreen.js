@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import Header from '../components/Header';
-import SubjectList from '../components/SubjectList';
+import Header from '../components/header/Header';
+import SubjectList from '../components/subject/SubjectList';
 import HomeScreenBottomSheet from '../components/bottomsheets/HomeScreenBottomSheet';
 
 const HomeScreen = () => {

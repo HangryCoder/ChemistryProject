@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
 
 const SubjectList = ({ fetchSubjectData }) => {
-    const subjectData = require('../../assets/JSONFiles/SubjectData.json');
+    const subjectData = require('../../../assets/JSONFiles/SubjectData.json');
     const subjects = subjectData.results;
 
     function flatListItemSeparator() {
