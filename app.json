@@ -22,7 +22,11 @@
       "**/*"
     ],
     "ios": {
+      "package": "com.hangrycoder.chemistryproject",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.hangrycoder.chemistryproject"
     }
   }
 }
