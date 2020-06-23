@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
+import TestHeader from '../header/TestHeader';
 
 const SubjectList = ({ fetchSubjectData }) => {
     const subjectData = require('../../../assets/JSONFiles/SubjectData.json');
@@ -12,6 +13,10 @@ const SubjectList = ({ fetchSubjectData }) => {
                 style={styles.flatListSeparator}
             />
         );
+    }
+
+    const renderHeader = () => {
+        return <TestHeader />;
     }
 
     return (
@@ -26,6 +31,7 @@ const SubjectList = ({ fetchSubjectData }) => {
                         fetchSubjectData(item);
                     }}
                 />}
+                ListHeaderComponent={renderHeader}
                 keyExtractor={subject => subject.id}
                 ItemSeparatorComponent={() => flatListItemSeparator()}
             />
@@ -37,7 +43,6 @@ const styles = StyleSheet.create({
     subjectListContainer: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingHorizontal: 10
     },
     flatListSeparator: {
         height: 1,
