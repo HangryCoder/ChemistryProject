@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
 import TestHeader from '../header/TestHeader';
 
-const SubjectList = ({ fetchSubjectData }) => {
+const SubjectList = ({ fetchSubjectData, startPracticeCallback }) => {
     const subjectData = require('../../../assets/JSONFiles/SubjectData.json');
     const subjects = subjectData.results;
 
@@ -16,7 +16,7 @@ const SubjectList = ({ fetchSubjectData }) => {
     }
 
     const renderHeader = () => {
-        return <TestHeader />;
+        return <TestHeader startPracticeCallback={startPracticeCallback} />;
     }
 
     return (

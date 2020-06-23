@@ -10,15 +10,22 @@ const snapPoints = [
     0
 ];
 
-let bottomSheetRef = React.createRef();
-
 class TestScreen extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.bottomSheetRef = React.createRef();
+    }
+
+    openBottomSheet() {
+        this.bottomSheetRef.current.snapTo(0);
+    }
 
     render() {
         return (<View style={styles.mainContainer}>
-            <SubjectList />
+            <SubjectList startPracticeCallback={() => this.openBottomSheet()} />
             <BottomSheet
-                ref={bottomSheetRef}
+                ref={this.bottomSheetRef}
                 initialSnap={1}
                 enabledHeaderGestureInteraction={true}
                 enabledContentGestureInteraction={false}
@@ -26,7 +33,7 @@ class TestScreen extends React.Component {
                 renderHeader={() => <CustomBottomSheetHeader
                     title="Chemistry"
                     subTitle="7"
-                    onPress={() => bottomSheetRef.current.snapTo(1)} />}
+                    onPress={() => this.bottomSheetRef.current.snapTo(0)} />}
                 renderContent={() => <StartPracticeBottomSheetContent />}
             />
         </View>);
