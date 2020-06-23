@@ -28,9 +28,13 @@ class TestScreen extends React.Component {
     }
 
     fetchSubjectData(subjectData) {
+        const subSections = subjectData.sub_sections.map(item => ({
+            ...item,
+            checked: true
+        }));
         this.setState({
             subject: subjectData,
-            subSections: subjectData.sub_sections
+            subSections: subSections
         });
         this.openBottomSheet()
     };
@@ -56,11 +60,11 @@ class TestScreen extends React.Component {
     }
 
     renderBottomSheetContent() {
-        const { subject } = this.state;
+        const { subSections } = this.state;
 
-        return (subject ? <SubjectBottomSheetContent
-            subSections={subject.sub_sections}
-            selectedSubSectionsCountCallback={(count) => getCountOfSelectedSubSections(count)}
+        return (subSections ? <SubjectBottomSheetContent
+            subSections={subSections}
+        //selectedSubSectionsCountCallback={(count) => getCountOfSelectedSubSections(count)}
         /> : <StartPracticeBottomSheetContent />);
     }
 

@@ -24,13 +24,13 @@ const SubjectBottomSheetContent = ({ subSections,
                     renderItem={({ item }) => <SubjectSubSectionItem
                         id={item.id}
                         name={item.name}
-                        isSelected={true}
+                        isSelected={item.checked}
                         updateSelectedCount={(isChecked) => {
-                            if (!isChecked) {
-                                selectedSubSectionsCountCallback(-1)
-                            } else {
-                                selectedSubSectionsCountCallback(1)
-                            }
+                            // if (!isChecked) {
+                            //     selectedSubSectionsCountCallback(-1)
+                            // } else {
+                            //     selectedSubSectionsCountCallback(1)
+                            // }
                         }}
                     />}
                     keyExtractor={subSection => subSection.name}
