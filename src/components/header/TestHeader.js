@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, View, Text, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet } from 'react-native';
 import HeaderButton from './HeaderButton';
 
 const TestHeader = ({ startPracticeCallback }) => {
