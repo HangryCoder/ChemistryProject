@@ -52,7 +52,7 @@ class TestScreen extends React.Component {
         return <CustomBottomSheetHeader
             title={title}
             subTitle={topicCount}
-            onPress={() => this.bottomSheetRef.current.snapTo(0)} />;
+            onPress={() => this.bottomSheetRef.current.snapTo(1)} />;
     }
 
     renderBottomSheetContent() {
