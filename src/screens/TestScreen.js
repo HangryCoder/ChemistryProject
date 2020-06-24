@@ -51,7 +51,7 @@ class TestScreen extends React.Component {
         const { subject, subSections } = this.state;
 
         const title = subject ? subject.name : "Chemistry";
-        const topicCount = subSections ? subSections.length : "7";
+        const topicCount = subSections ? subSections.filter(subSection => (subSection.checked)).length : "7";
 
         return <CustomBottomSheetHeader
             title={title}
@@ -70,7 +70,6 @@ class TestScreen extends React.Component {
                 this.setState({
                     subSections: updateSubSections
                 });
-                console.log(`Index ${index} isChecked ${isChecked}`);
             }
             }
         /> : <StartPracticeBottomSheetContent />);
