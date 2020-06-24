@@ -1,44 +1,17 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import ImageButton from '../ImageButton';
 import * as actions from '../../../actions';
 import { connect } from 'react-redux';
 
-const STEP = 5;
-const INCREMENT = 'increment';
-const DECREMENT = 'decrement';
-
-const reducer = (state, action) => {
-    switch (action.type) {
-        case INCREMENT:
-            return { ...state, count: state.count + action.payload };
-        case DECREMENT:
-            return state.count <= STEP ? state : { ...state, count: state.count - action.payload };
-        default:
-            return state;
-    }
-}
-
 const StartPracticeCustomBottomSheetContent = ({ questionCounter, incrementCounter, decrementCounter }) => {
-
-    const [state, dispatch] = useReducer(reducer, { count: STEP });
-
-    function incrementCount() {
-        //dispatch({ type: INCREMENT, payload: STEP })
-        incrementCounter();
-    }
-
-    function decrementCount() {
-        // dispatch({ type: DECREMENT, payload: STEP })
-        decrementCounter();
-    }
 
     return (
         <View style={styles.startPracticeMainContainer}>
             <View style={styles.startPracticeContainer}>
                 <ImageButton
-                    onPress={() => decrementCount()}
+                    onPress={() => decrementCounter()}
                     icon={require('../../../../assets/minus.png')}
                 />
                 <View style={styles.questionContainer}>
@@ -46,7 +19,7 @@ const StartPracticeCustomBottomSheetContent = ({ questionCounter, incrementCount
                     <Text style={styles.questions}>Questions</Text>
                 </View>
                 <ImageButton
-                    onPress={() => incrementCount()}
+                    onPress={() => incrementCounter()}
                     icon={require('../../../../assets/add.png')}
                 />
             </View>
