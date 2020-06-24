@@ -21,16 +21,16 @@ const SubjectBottomSheetContent = ({ subSections,
                 <FlatList
                     ref={flatListRef}
                     data={subSections}
-                    renderItem={({ item }) => <SubjectSubSectionItem
+                    renderItem={({ item, index }) => <SubjectSubSectionItem
                         id={item.id}
                         name={item.name}
                         isSelected={item.checked}
                         updateSelectedCount={(isChecked) => {
-                            // if (!isChecked) {
-                            //     selectedSubSectionsCountCallback(-1)
-                            // } else {
-                            //     selectedSubSectionsCountCallback(1)
-                            // }
+                            // subSections.map(element => {
+                            //     element[index].checked = isChecked;
+                            // });
+                            // console.log(subSections);
+                            selectedSubSectionsCountCallback(index, isChecked);
                         }}
                     />}
                     keyExtractor={subSection => subSection.name}

@@ -64,7 +64,15 @@ class TestScreen extends React.Component {
 
         return (subSections ? <SubjectBottomSheetContent
             subSections={subSections}
-        //selectedSubSectionsCountCallback={(count) => getCountOfSelectedSubSections(count)}
+            selectedSubSectionsCountCallback={(index, isChecked) => {
+                const updateSubSections = this.state.subSections;
+                updateSubSections[index].checked = isChecked;
+                this.setState({
+                    subSections: updateSubSections
+                });
+                console.log(`Index ${index} isChecked ${isChecked}`);
+            }
+            }
         /> : <StartPracticeBottomSheetContent />);
     }
 
