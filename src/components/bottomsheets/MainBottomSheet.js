@@ -90,6 +90,8 @@ const MainBottomSheet = ({ bottomSheetRef,
 const styles = StyleSheet.create({
     bottomSheetContainer: {
         flex: 1
+        // width: '100%',
+        // height: '50%'
     },
     contentContainer: {
         height: snapPoints[1] - snapPoints[0],

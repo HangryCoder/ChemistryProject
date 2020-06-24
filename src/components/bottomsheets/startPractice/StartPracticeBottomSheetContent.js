@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import ImageButton from '../ImageButton';
 
+const STEP = 5;
+const INCREMENT = 'increment';
+const DECREMENT = 'decrement';
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case INCREMENT:
+            return { ...state, count: state.count + action.payload };
+        case DECREMENT:
+            return state.count <= STEP ? state : { ...state, count: state.count - action.payload };
+        default:
+            return state;
+    }
+}
+
 const StartPracticeCustomBottomSheetContent = () => {
 
-    const [count, setCount] = useState(10);
-    const step = 5;
+    const [state, dispatch] = useReducer(reducer, { count: STEP });
 
     function incrementCount() {
-        setCount(count + step)
+        dispatch({ type: INCREMENT, payload: STEP })
     }
 
     function decrementCount() {
-        if (count > 10) {
-            setCount(count - step)
-        }
+        dispatch({ type: DECREMENT, payload: STEP })
     }
 
     return (
@@ -26,7 +38,7 @@ const StartPracticeCustomBottomSheetContent = () => {
                     icon={require('../../../../assets/minus.png')}
                 />
                 <View style={styles.questionContainer}>
-                    <Text style={styles.numberOfQuestions}>{count}</Text>
+                    <Text style={styles.numberOfQuestions}>{state.count}</Text>
                     <Text style={styles.questions}>Questions</Text>
                 </View>
                 <ImageButton

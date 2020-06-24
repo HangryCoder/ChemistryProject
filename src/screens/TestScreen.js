@@ -5,6 +5,7 @@ import SubjectList from '../components/subject/SubjectList';
 import StartPracticeBottomSheetContent from '../components/bottomsheets/startPractice/StartPracticeBottomSheetContent';
 import CustomBottomSheetHeader from '../components/bottomsheets/CustomBottomSheetHeader';
 import SubjectBottomSheetContent from '../components/bottomsheets/subSection/SubjectBottomSheetContent';
+import MainBottomSheet from '../components/bottomsheets/MainBottomSheet';
 
 const snapPoints = [
     450,
@@ -78,7 +79,9 @@ class TestScreen extends React.Component {
     render() {
         return (
             <View style={styles.mainContainer}>
-                <TouchableWithoutFeedback onPress={() => this.closeBottomSheet()}>
+                <TouchableWithoutFeedback
+                    style={{ position: 'absolute', height: '100%', width: '100%', zIndex: -1 }}
+                    onPress={() => this.closeBottomSheet()}>
                     <SubjectList startPracticeCallback={() => this.startPractice()}
                         fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
                     />
@@ -92,6 +95,13 @@ class TestScreen extends React.Component {
                     renderHeader={() => this.renderBottomSheetHeader()}
                     renderContent={() => this.renderBottomSheetContent()}
                 />
+                {/* <MainBottomSheet
+                    bottomSheetRef={this.bottomSheetRef}
+                    content={this.renderBottomSheetContent()}
+                    header={this.renderBottomSheetHeader()}
+                    onBottomSheetOpenStart={() => this.openBottomSheet()}
+                    onBottomSheetCloseEnd={() => this.closeBottomSheet()}
+                /> */}
             </View>
         );
     }
