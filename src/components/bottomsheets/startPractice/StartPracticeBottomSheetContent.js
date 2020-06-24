@@ -2,6 +2,8 @@ import React, { useReducer } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import ImageButton from '../ImageButton';
+import * as actions from '../../../actions';
+import { connect } from 'react-redux';
 
 const STEP = 5;
 const INCREMENT = 'increment';
@@ -18,16 +20,18 @@ const reducer = (state, action) => {
     }
 }
 
-const StartPracticeCustomBottomSheetContent = () => {
+const StartPracticeCustomBottomSheetContent = ({ questionCounter, incrementCounter, decrementCounter }) => {
 
     const [state, dispatch] = useReducer(reducer, { count: STEP });
 
     function incrementCount() {
-        dispatch({ type: INCREMENT, payload: STEP })
+        //dispatch({ type: INCREMENT, payload: STEP })
+        incrementCounter();
     }
 
     function decrementCount() {
-        dispatch({ type: DECREMENT, payload: STEP })
+        // dispatch({ type: DECREMENT, payload: STEP })
+        decrementCounter();
     }
 
     return (
@@ -38,7 +42,7 @@ const StartPracticeCustomBottomSheetContent = () => {
                     icon={require('../../../../assets/minus.png')}
                 />
                 <View style={styles.questionContainer}>
-                    <Text style={styles.numberOfQuestions}>{state.count}</Text>
+                    <Text style={styles.numberOfQuestions}>{questionCounter}</Text>
                     <Text style={styles.questions}>Questions</Text>
                 </View>
                 <ImageButton
@@ -80,4 +84,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default StartPracticeCustomBottomSheetContent;
+const mapStateToProps = state => {
+    return {
+        questionCounter: state.questionCounter
+    };
+};
+
+export default connect(mapStateToProps, actions)(StartPracticeCustomBottomSheetContent);

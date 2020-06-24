@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import SubjectReducer from '../reducers/SubjectReducer';
-import questionCounterReducer from '../reducers/questionCounterReducer';
+import QuestionCounterReducer from '../reducers/QuestionCounterReducer';
 
 export default combineReducers({
     subjects: SubjectReducer,
-    questionCounter: questionCounterReducer
+    questionCounter: QuestionCounterReducer
 });
