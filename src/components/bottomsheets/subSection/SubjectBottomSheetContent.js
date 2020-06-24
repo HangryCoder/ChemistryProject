@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import CustomBottomSheetButton from '../CustomBottomSheetButton';
 import SubjectSubSectionItem from './SubjectSubSectionItem';
@@ -26,10 +26,6 @@ const SubjectBottomSheetContent = ({ subSections,
                         name={item.name}
                         isSelected={item.checked}
                         updateSelectedCount={(isChecked) => {
-                            // subSections.map(element => {
-                            //     element[index].checked = isChecked;
-                            // });
-                            // console.log(subSections);
                             selectedSubSectionsCountCallback(index, isChecked);
                         }}
                     />}
