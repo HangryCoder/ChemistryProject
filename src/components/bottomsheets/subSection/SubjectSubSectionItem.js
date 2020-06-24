@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     View,
     Text,
@@ -8,20 +8,17 @@ import { CheckBox } from 'react-native-elements'
 
 const SubjectSubSectionItem = ({ id, name, isSelected, updateSelectedCount }) => {
 
-    const [isChecked, setChecked] = useState(isSelected);
-
     return (<View style={styles.subSectionContainer}>
         <Text style={styles.subSectionId}>{id}</Text>
         <Text style={styles.subSectionName}>{name}</Text>
         <CheckBox
-            checked={isChecked}
+            checked={isSelected}
             iconRight
             iconType='material'
             checkedIcon='check-box'
             uncheckedIcon="check-box-outline-blank"
             onPress={() => {
-                updateSelectedCount(!isChecked);
-                setChecked(!isChecked);
+                updateSelectedCount(!isSelected);
             }}
             checkedColor={'#ffb939'}
         />
