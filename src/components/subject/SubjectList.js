@@ -2,10 +2,9 @@ import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
 import TestHeader from '../header/TestHeader';
+import { connect } from 'react-redux';
 
-const SubjectList = ({ fetchSubjectData, startPracticeCallback }) => {
-    const subjectData = require('../../../assets/JSONFiles/SubjectData.json');
-    const subjects = subjectData.results;
+const SubjectList = ({ subjects, fetchSubjectData, startPracticeCallback }) => {
 
     function flatListItemSeparator() {
         return (
@@ -51,4 +50,10 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SubjectList;
+const mapStateToProps = state => {
+    return {
+        subjects: state.subjects
+    };
+};
+
+export default connect(mapStateToProps)(SubjectList);
