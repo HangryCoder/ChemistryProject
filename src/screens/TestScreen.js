@@ -19,6 +19,7 @@ class TestScreen extends React.Component {
     constructor(props) {
         super(props);
         this.bottomSheetRef = React.createRef();
+        this.flatListRef = React.createRef();
     }
 
     startPractice() {
@@ -62,6 +63,7 @@ class TestScreen extends React.Component {
         const { subSections, setSubSections } = this.props;
 
         return (subSections.length != 0 ? <SubjectBottomSheetContent
+            flatListRef={this.flatListRef}
             subSections={subSections}
             selectedSubSectionsCountCallback={(index, isChecked) => {
                 const updateSubSections = subSections;
@@ -73,13 +75,21 @@ class TestScreen extends React.Component {
         /> : <StartPracticeBottomSheetContent />);
     }
 
+    scrollSubjectListToTheStart() {
+        const { subSections } = this.props;
+        if (subSections != 0) {
+            this.flatListRef.current.scrollToIndex({ animated: true, index: 0 });
+        }
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
                 <TouchableWithoutFeedback
                     style={{ position: 'absolute', height: '100%', width: '100%', zIndex: -1 }}
                     onPress={() => this.closeBottomSheet()}>
-                    <SubjectList startPracticeCallback={() => this.startPractice()}
+                    <SubjectList
+                        startPracticeCallback={() => this.startPractice()}
                         fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
                     />
                 </TouchableWithoutFeedback>
@@ -91,6 +101,7 @@ class TestScreen extends React.Component {
                     snapPoints={snapPoints}
                     renderHeader={() => this.renderBottomSheetHeader()}
                     renderContent={() => this.renderBottomSheetContent()}
+                    onCloseEnd={() => this.scrollSubjectListToTheStart()}
                 />
                 {/* <MainBottomSheet
                     bottomSheetRef={this.bottomSheetRef}
@@ -100,6 +111,46 @@ class TestScreen extends React.Component {
                     onBottomSheetCloseEnd={() => this.closeBottomSheet()}
                 /> */}
             </View>
+
+            // <View style={styles.mainContainer}>
+            //     <TouchableWithoutFeedback
+            //         style={{
+            //             position: 'absolute',
+            //             height: '100%',
+            //             width: '100%',
+            //             zIndex: -1
+            //         }}
+            //     >
+            //         <SubjectList startPracticeCallback={() => this.startPractice()}
+            //             fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
+            //         />
+            //     </TouchableWithoutFeedback>
+            //     {/* <View style={{
+            //         backgroundColor: 'blue',
+            //         height: 200,
+            //         position: 'absolute',
+            //         zIndex: 1,
+            //         flex: 1,
+            //         width: '100%'
+            //     }}>
+            //     </View> */}
+            //     {/* <View style={{
+            //         position: 'absolute',
+            //         zIndex: 1
+            //     }}> */}
+            //     <MainBottomSheet
+            //         style={{
+            //             zIndex: 1,
+            //             position: 'absolute'
+            //         }}
+            //         bottomSheetRef={this.bottomSheetRef}
+            //         content={this.renderBottomSheetContent()}
+            //         header={this.renderBottomSheetHeader()}
+            //         onBottomSheetOpenStart={() => this.openBottomSheet()}
+            //         onBottomSheetCloseEnd={() => this.closeBottomSheet()}
+            //     />
+            //     {/* </View> */}
+            // </View >
         );
     }
 }

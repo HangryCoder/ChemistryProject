@@ -71,7 +71,7 @@ const MainBottomSheet = ({ bottomSheetRef,
         <View style={styles.bottomSheetContainer} >
             <BottomSheet
                 ref={bottomSheetRef}
-                initialSnap={1}
+                initialSnap={0}
                 callbackNode={fall}
                 enabledHeaderGestureInteraction={true}
                 enabledContentGestureInteraction={false}
@@ -90,8 +90,7 @@ const MainBottomSheet = ({ bottomSheetRef,
 const styles = StyleSheet.create({
     bottomSheetContainer: {
         flex: 1
-        // width: '100%',
-        // height: '50%'
+        // width: '100%'
     },
     contentContainer: {
         height: snapPoints[1] - snapPoints[0],
