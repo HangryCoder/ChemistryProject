@@ -71,7 +71,7 @@ const MainBottomSheet = ({ bottomSheetRef,
         <View style={styles.bottomSheetContainer} >
             <BottomSheet
                 ref={bottomSheetRef}
-                initialSnap={0}
+                initialSnap={1}
                 callbackNode={fall}
                 enabledHeaderGestureInteraction={true}
                 enabledContentGestureInteraction={false}
