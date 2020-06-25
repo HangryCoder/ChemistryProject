@@ -118,12 +118,21 @@ class TestScreen extends React.Component {
             // </View>
 
             <View style={{ flex: 1 }}>
-                <View style={{ width: '100%', height: '100%', zIndex: -1, position: 'absolute', backgroundColor: 'red' }} >
-                    <SubjectList
-                        startPracticeCallback={() => this.startPractice()}
-                        fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
-                    />
-                </View>
+                <TouchableWithoutFeedback
+                    onPress={() => this.closeBottomSheet()}>
+                    <View style={{
+                        width: '100%',
+                        height: '100%',
+                        zIndex: -1,
+                        position: 'absolute',
+                        backgroundColor: 'red'
+                    }} >
+                        <SubjectList
+                            startPracticeCallback={() => this.startPractice()}
+                            fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
+                        />
+                    </View>
+                </TouchableWithoutFeedback>
                 <MainBottomSheet
                     style={{ width: '100%', height: '100%', zIndex: 1, position: 'absolute' }}
                     bottomSheetRef={this.bottomSheetRef}
@@ -132,7 +141,7 @@ class TestScreen extends React.Component {
                     onBottomSheetOpenStart={() => this.openBottomSheet()}
                     onBottomSheetCloseEnd={() => this.closeBottomSheet()}
                 />
-            </View>
+            </View >
 
             // <View style={styles.mainContainer}>
             //     <TouchableWithoutFeedback
