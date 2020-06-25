@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import BottomSheet from 'reanimated-bottom-sheet';
 import SubjectList from '../components/subject/SubjectList';
 import StartPracticeBottomSheetContent from '../components/bottomsheets/startPractice/StartPracticeBottomSheetContent';
 import CustomBottomSheetHeader from '../components/bottomsheets/CustomBottomSheetHeader';
@@ -8,11 +7,6 @@ import SubjectBottomSheetContent from '../components/bottomsheets/subSection/Sub
 import MainBottomSheet from '../components/bottomsheets/MainBottomSheet';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-
-const snapPoints = [
-    450,
-    0
-];
 
 class TestScreen extends React.Component {
 
@@ -84,49 +78,10 @@ class TestScreen extends React.Component {
 
     render() {
         return (
-            // <View style={styles.mainContainer}>
-            //     <TouchableWithoutFeedback
-
-            //         onPress={() => this.closeBottomSheet()}>
-            //         <SubjectList
-            //             style={{ position: 'absolute', zIndex: -1 }}
-            //             startPracticeCallback={() => this.startPractice()}
-            //             fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
-            //         />
-            //     </TouchableWithoutFeedback>
-            //     <BottomSheet
-            //         ref={this.bottomSheetRef}
-            //         initialSnap={1}
-            //         enabledHeaderGestureInteraction={true}
-            //         enabledContentGestureInteraction={false}
-            //         snapPoints={snapPoints}
-            //         renderHeader={() => this.renderBottomSheetHeader()}
-            //         renderContent={() => this.renderBottomSheetContent()}
-            //         onCloseEnd={() => this.scrollSubjectListToTheStart()}
-            //     />
-            //     {/* <MainBottomSheet
-            //         style={{
-            //             zIndex: 1,
-            //             position: 'absolute'
-            //         }}
-            //         bottomSheetRef={this.bottomSheetRef}
-            //         content={this.renderBottomSheetContent()}
-            //         header={this.renderBottomSheetHeader()}
-            //         onBottomSheetOpenStart={() => this.openBottomSheet()}
-            //         onBottomSheetCloseEnd={() => this.closeBottomSheet()}
-            //     /> */}
-            // </View>
-
-            <View style={{ flex: 1 }}>
+            <View style={styles.mainContainer}>
                 <TouchableWithoutFeedback
                     onPress={() => this.closeBottomSheet()}>
-                    <View style={{
-                        width: '100%',
-                        height: '100%',
-                        zIndex: -1,
-                        position: 'absolute',
-                        backgroundColor: 'red'
-                    }} >
+                    <View style={styles.subjectListContainer} >
                         <SubjectList
                             startPracticeCallback={() => this.startPractice()}
                             fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
@@ -134,54 +89,13 @@ class TestScreen extends React.Component {
                     </View>
                 </TouchableWithoutFeedback>
                 <MainBottomSheet
-                    style={{ width: '100%', height: '100%', zIndex: 1, position: 'absolute' }}
+                    style={styles.bottomSheetContainer}
                     bottomSheetRef={this.bottomSheetRef}
                     content={this.renderBottomSheetContent()}
                     header={this.renderBottomSheetHeader()}
-                    onBottomSheetOpenStart={() => this.openBottomSheet()}
-                    onBottomSheetCloseEnd={() => this.closeBottomSheet()}
+                    onBottomSheetCloseEnd={() => this.scrollSubjectListToTheStart()}
                 />
             </View >
-
-            // <View style={styles.mainContainer}>
-            //     <TouchableWithoutFeedback
-            //         style={{
-            //             position: 'absolute',
-            //             height: '100%',
-            //             width: '100%',
-            //             zIndex: -1
-            //         }}
-            //     >
-            //         <SubjectList startPracticeCallback={() => this.startPractice()}
-            //             fetchSubjectData={(subject) => this.fetchSubjectData(subject)}
-            //         />
-            //     </TouchableWithoutFeedback>
-            //     {/* <View style={{
-            //         backgroundColor: 'blue',
-            //         height: 200,
-            //         position: 'absolute',
-            //         zIndex: 1,
-            //         flex: 1,
-            //         width: '100%'
-            //     }}>
-            //     </View> */}
-            //     {/* <View style={{
-            //         position: 'absolute',
-            //         zIndex: 1
-            //     }}> */}
-            //     <MainBottomSheet
-            //         style={{
-            //             zIndex: 1,
-            //             position: 'absolute'
-            //         }}
-            //         bottomSheetRef={this.bottomSheetRef}
-            //         content={this.renderBottomSheetContent()}
-            //         header={this.renderBottomSheetHeader()}
-            //         onBottomSheetOpenStart={() => this.openBottomSheet()}
-            //         onBottomSheetCloseEnd={() => this.closeBottomSheet()}
-            //     />
-            //     {/* </View> */}
-            // </View >
         );
     }
 }
@@ -189,6 +103,17 @@ class TestScreen extends React.Component {
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1
+    },
+    subjectListContainer: {
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
+        position: 'absolute',
+        backgroundColor: 'red'
+    },
+    bottomSheetContainer: {
+        zIndex: 1,
+        position: 'absolute'
     }
 });
 
