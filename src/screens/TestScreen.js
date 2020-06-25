@@ -19,14 +19,12 @@ class TestScreen extends React.Component {
         super(props);
         this.bottomSheetRef = React.createRef();
         this.state = {
-            // subject: {},
             subSections: []
         };
     }
 
     startPractice() {
         this.setState({
-            //subject: null, 
             subSections: null
         });
         this.openBottomSheet()
@@ -46,7 +44,6 @@ class TestScreen extends React.Component {
             checked: true
         }));
         this.setState({
-            // subject: subject,
             subSections: subSections
         });
         this.openBottomSheet()
@@ -61,9 +58,7 @@ class TestScreen extends React.Component {
     }
 
     renderBottomSheetHeader() {
-        const {
-            //subject, 
-            subSections } = this.state;
+        const { subSections } = this.state;
 
         const { subjects, selectedSubjectId } = this.props;
         const subject = subjects.find(subject => subject.id === selectedSubjectId);
@@ -94,9 +89,6 @@ class TestScreen extends React.Component {
     }
 
     render() {
-
-        // console.log(`Render ${JSON.stringify(this.props.selectedSubjectId)}`);
-
         return (
             <View style={styles.mainContainer}>
                 <TouchableWithoutFeedback
