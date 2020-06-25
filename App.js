@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, HeaderBackButton } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import TestScreen from './src/screens/TestScreen';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';

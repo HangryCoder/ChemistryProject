@@ -32,8 +32,11 @@ const SubjectList = ({
                     id={item.id}
                     xp={item.xp}
                     onPress={() => {
-                        fetchSubjectData(item);
-                        setSelectedSubjectId(item.id);
+                        setSelectedSubjectId(item.id)
+                        // .then(() => {
+                        //     console.log('updated Id');
+                        // });
+                        fetchSubjectData();
                     }}
                 />}
                 ListHeaderComponent={renderHeader}
