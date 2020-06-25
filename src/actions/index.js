@@ -33,5 +33,5 @@ export const setSubSections = (subSections) => dispatch => {
         type: SUB_SECTIONS,
         payload: subSections
     });
-    Promise.resolve();
+    return Promise.resolve();
 };

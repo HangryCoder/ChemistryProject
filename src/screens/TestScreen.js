@@ -19,17 +19,10 @@ class TestScreen extends React.Component {
     constructor(props) {
         super(props);
         this.bottomSheetRef = React.createRef();
-        // this.state = {
-        //     subSections: []
-        // };
     }
 
     startPractice() {
-        // this.setState({
-        //     subSections: null
-        // });
-        this.props.setSubSections([])//.then(() => this.openBottomSheet());
-        this.openBottomSheet();
+        this.props.setSubSections([]).then(() => this.openBottomSheet());
     }
 
     fetchSubjectData() {
@@ -45,14 +38,8 @@ class TestScreen extends React.Component {
             ...item,
             checked: true
         }));
-        // this.setState({
-        //     subSections: subSections
-        // });
 
-        setSubSections(subSections)
-        //.then(() => this.openBottomSheet());
-
-        this.openBottomSheet();
+        setSubSections(subSections).then(() => this.openBottomSheet());
     };
 
     openBottomSheet() {
@@ -64,8 +51,6 @@ class TestScreen extends React.Component {
     }
 
     renderBottomSheetHeader() {
-        //const { subSections } = this.state;
-
         const { subjects, selectedSubjectId, subSections } = this.props;
 
         console.log(`SubSections Render ${JSON.stringify(subSections)}`);
