@@ -26,13 +26,8 @@ class TestScreen extends React.Component {
     }
 
     fetchSubjectData() {
-        console.log(`Selected Subject id ${JSON.stringify(this.props.selectedSubjectId)}`);
-
         const { subjects, selectedSubjectId, setSubSections } = this.props;
         const subject = subjects.find(subject => subject.id === selectedSubjectId);
-
-        console.log(`Subject ${JSON.stringify(subject)}`);
-        console.log(`SubSections ${JSON.stringify(subject.sub_sections)}`);
 
         const subSections = subject.sub_sections.map(item => ({
             ...item,
@@ -52,9 +47,6 @@ class TestScreen extends React.Component {
 
     renderBottomSheetHeader() {
         const { subjects, selectedSubjectId, subSections } = this.props;
-
-        console.log(`SubSections Render ${JSON.stringify(subSections)}`);
-
         const subject = subjects.find(subject => subject.id === selectedSubjectId);
 
         const title = subSections.length != 0 ? subject.name : "Chemistry";
@@ -72,14 +64,12 @@ class TestScreen extends React.Component {
         return (subSections.length != 0 ? <SubjectBottomSheetContent
             subSections={subSections}
             selectedSubSectionsCountCallback={(index, isChecked) => {
-                const updateSubSections = this.state.subSections;
+                const updateSubSections = subSections;
                 updateSubSections[index].checked = isChecked;
-                // this.setState({
-                //     subSections: updateSubSections
-                // });
-                setSubSections(updateSubSections);
-            }
-            }
+                setSubSections(updateSubSections).then(() => {
+                    this.forceUpdate();
+                });
+            }}
         /> : <StartPracticeBottomSheetContent />);
     }
 
