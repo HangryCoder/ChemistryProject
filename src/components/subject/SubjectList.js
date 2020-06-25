@@ -3,8 +3,13 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import SubjectItem from './SubjectItem';
 import TestHeader from '../header/TestHeader';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
-const SubjectList = ({ subjects, fetchSubjectData, startPracticeCallback }) => {
+const SubjectList = ({
+    subjects,
+    setSelectedSubjectId,
+    fetchSubjectData,
+    startPracticeCallback }) => {
 
     function flatListItemSeparator() {
         return (
@@ -28,6 +33,7 @@ const SubjectList = ({ subjects, fetchSubjectData, startPracticeCallback }) => {
                     xp={item.xp}
                     onPress={() => {
                         fetchSubjectData(item);
+                        setSelectedSubjectId(item.id);
                     }}
                 />}
                 ListHeaderComponent={renderHeader}
@@ -56,4 +62,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(SubjectList);
+export default connect(mapStateToProps, actions)(SubjectList);

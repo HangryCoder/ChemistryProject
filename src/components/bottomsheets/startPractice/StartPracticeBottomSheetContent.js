@@ -22,7 +22,7 @@ const StartPracticeCustomBottomSheetContent = ({ questionCounter, incrementCount
                     icon={require('../../../../assets/add.png')}
                 />
             </View>
-            <CustomBottomSheetButton title="Start practice" onPress={() => console.log("Hello")} />
+            <CustomBottomSheetButton title="Start practice" />
         </View>
     )
 };

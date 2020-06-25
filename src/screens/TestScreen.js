@@ -6,6 +6,7 @@ import StartPracticeBottomSheetContent from '../components/bottomsheets/startPra
 import CustomBottomSheetHeader from '../components/bottomsheets/CustomBottomSheetHeader';
 import SubjectBottomSheetContent from '../components/bottomsheets/subSection/SubjectBottomSheetContent';
 import MainBottomSheet from '../components/bottomsheets/MainBottomSheet';
+import { connect } from 'react-redux';
 
 const snapPoints = [
     450,
@@ -29,6 +30,14 @@ class TestScreen extends React.Component {
     }
 
     fetchSubjectData(subjectData) {
+
+        console.log(`Selected Subject id ${JSON.stringify(this.props.selectedSubjectId)}`);
+
+        const { subjects, selectedSubjectId } = this.props;
+        const subject = subjects.filter(subject => subject.id === selectedSubjectId);
+
+        console.log(` Subject ${JSON.stringify(subject)}`);
+
         const subSections = subjectData.sub_sections.map(item => ({
             ...item,
             checked: true
@@ -113,4 +122,12 @@ const styles = StyleSheet.create({
     }
 });
 
-export default TestScreen;
+const mapStateToProps = state => {
+    const { selectedSubjectId, subjects } = state;
+    return {
+        subjects: subjects,
+        selectedSubjectId: selectedSubjectId
+    };
+};
+
+export default connect(mapStateToProps)(TestScreen);
