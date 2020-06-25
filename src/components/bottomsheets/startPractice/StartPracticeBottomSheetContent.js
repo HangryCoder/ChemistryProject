@@ -6,7 +6,6 @@ import * as actions from '../../../actions';
 import { connect } from 'react-redux';
 
 const StartPracticeCustomBottomSheetContent = ({ questionCounter, incrementCounter, decrementCounter }) => {
-
     return (
         <View style={styles.startPracticeMainContainer}>
             <View style={styles.startPracticeContainer}>
@@ -15,7 +14,7 @@ const StartPracticeCustomBottomSheetContent = ({ questionCounter, incrementCount
                     icon={require('../../../../assets/minus.png')}
                 />
                 <View style={styles.questionContainer}>
-                    <Text style={styles.numberOfQuestions}>{questionCounter}</Text>
+                    <Text style={styles.numberOfQuestions}>{questionCounter.questionCounter}</Text>
                     <Text style={styles.questions}>Questions</Text>
                 </View>
                 <ImageButton
