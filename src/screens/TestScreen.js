@@ -7,6 +7,7 @@ import CustomBottomSheetHeader from '../components/bottomsheets/CustomBottomShee
 import SubjectBottomSheetContent from '../components/bottomsheets/subSection/SubjectBottomSheetContent';
 import MainBottomSheet from '../components/bottomsheets/MainBottomSheet';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 const snapPoints = [
     450,
@@ -18,22 +19,23 @@ class TestScreen extends React.Component {
     constructor(props) {
         super(props);
         this.bottomSheetRef = React.createRef();
-        this.state = {
-            subSections: []
-        };
+        // this.state = {
+        //     subSections: []
+        // };
     }
 
     startPractice() {
-        this.setState({
-            subSections: null
-        });
-        this.openBottomSheet()
+        // this.setState({
+        //     subSections: null
+        // });
+        this.props.setSubSections(null)//.then(() => this.openBottomSheet());
+        this.openBottomSheet();
     }
 
     fetchSubjectData() {
         console.log(`Selected Subject id ${JSON.stringify(this.props.selectedSubjectId)}`);
 
-        const { subjects, selectedSubjectId } = this.props;
+        const { subjects, selectedSubjectId, setSubSections } = this.props;
         const subject = subjects.find(subject => subject.id === selectedSubjectId);
 
         console.log(`Subject ${JSON.stringify(subject)}`);
@@ -43,10 +45,14 @@ class TestScreen extends React.Component {
             ...item,
             checked: true
         }));
-        this.setState({
-            subSections: subSections
-        });
-        this.openBottomSheet()
+        // this.setState({
+        //     subSections: subSections
+        // });
+
+        setSubSections(subSections)
+            .then(() => this.openBottomSheet());
+
+        //this.openBottomSheet();
     };
 
     openBottomSheet() {
@@ -58,9 +64,12 @@ class TestScreen extends React.Component {
     }
 
     renderBottomSheetHeader() {
-        const { subSections } = this.state;
+        //const { subSections } = this.state;
 
-        const { subjects, selectedSubjectId } = this.props;
+        const { subjects, selectedSubjectId, subSections } = this.props;
+
+        console.log(`SubSections Render ${JSON.stringify(subSections)}`);
+
         const subject = subjects.find(subject => subject.id === selectedSubjectId);
 
         const title = subject ? subject.name : "Chemistry";
@@ -73,16 +82,17 @@ class TestScreen extends React.Component {
     }
 
     renderBottomSheetContent() {
-        const { subSections } = this.state;
+        const { subSections, setSubSections } = this.props;
 
         return (subSections ? <SubjectBottomSheetContent
             subSections={subSections}
             selectedSubSectionsCountCallback={(index, isChecked) => {
                 const updateSubSections = this.state.subSections;
                 updateSubSections[index].checked = isChecked;
-                this.setState({
-                    subSections: updateSubSections
-                });
+                // this.setState({
+                //     subSections: updateSubSections
+                // });
+                setSubSections(updateSubSections);
             }
             }
         /> : <StartPracticeBottomSheetContent />);
@@ -126,11 +136,12 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-    const { selectedSubjectId, subjects } = state;
+    const { selectedSubjectId, subjects, subSections } = state;
     return {
         subjects: subjects,
-        selectedSubjectId: selectedSubjectId
+        selectedSubjectId: selectedSubjectId,
+        subSections: subSections
     };
 };
 
-export default connect(mapStateToProps)(TestScreen);
+export default connect(mapStateToProps, actions)(TestScreen);

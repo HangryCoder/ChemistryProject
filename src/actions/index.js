@@ -2,7 +2,8 @@ import {
     INCREMENT_COUNTER,
     DECREMENT_COUNTER,
     STEP,
-    SELECTED_SUBJECT_ID
+    SELECTED_SUBJECT_ID,
+    SUB_SECTIONS
 } from '../../src/constants';
 
 export const incrementCounter = () => {
@@ -25,4 +26,12 @@ export const setSelectedSubjectId = (id) => dispatch => {
         payload: id
     });
     return Promise.resolve();
+};
+
+export const setSubSections = (subSections) => dispatch => {
+    dispatch({
+        type: SUB_SECTIONS,
+        payload: subSections
+    });
+    Promise.resolve();
 };
