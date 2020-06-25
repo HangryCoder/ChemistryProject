@@ -19,9 +19,10 @@ export const decrementCounter = () => {
     };
 };
 
-export const setSelectedSubjectId = (id) => {
-    return {
+export const setSelectedSubjectId = (id) => dispatch => {
+    dispatch({
         type: SELECTED_SUBJECT_ID,
         payload: id
-    };
+    });
+    return Promise.resolve();
 };
