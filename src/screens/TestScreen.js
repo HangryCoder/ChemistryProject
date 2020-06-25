@@ -28,7 +28,7 @@ class TestScreen extends React.Component {
         // this.setState({
         //     subSections: null
         // });
-        this.props.setSubSections(null)//.then(() => this.openBottomSheet());
+        this.props.setSubSections([])//.then(() => this.openBottomSheet());
         this.openBottomSheet();
     }
 
@@ -50,9 +50,9 @@ class TestScreen extends React.Component {
         // });
 
         setSubSections(subSections)
-            .then(() => this.openBottomSheet());
+        //.then(() => this.openBottomSheet());
 
-        //this.openBottomSheet();
+        this.openBottomSheet();
     };
 
     openBottomSheet() {
@@ -72,8 +72,8 @@ class TestScreen extends React.Component {
 
         const subject = subjects.find(subject => subject.id === selectedSubjectId);
 
-        const title = subject ? subject.name : "Chemistry";
-        const topicCount = subSections ? subSections.filter(subSection => (subSection.checked)).length : "7";
+        const title = subSections.length != 0 ? subject.name : "Chemistry";
+        const topicCount = subSections.length != 0 ? subSections.filter(subSection => (subSection.checked)).length : "7";
 
         return <CustomBottomSheetHeader
             title={title}
@@ -84,7 +84,7 @@ class TestScreen extends React.Component {
     renderBottomSheetContent() {
         const { subSections, setSubSections } = this.props;
 
-        return (subSections ? <SubjectBottomSheetContent
+        return (subSections.length != 0 ? <SubjectBottomSheetContent
             subSections={subSections}
             selectedSubSectionsCountCallback={(index, isChecked) => {
                 const updateSubSections = this.state.subSections;
