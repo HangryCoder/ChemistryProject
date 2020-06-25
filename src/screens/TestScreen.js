@@ -34,16 +34,17 @@ class TestScreen extends React.Component {
         console.log(`Selected Subject id ${JSON.stringify(this.props.selectedSubjectId)}`);
 
         const { subjects, selectedSubjectId } = this.props;
-        const subject = subjects.filter(subject => subject.id === selectedSubjectId);
+        const subject = subjects.find(subject => subject.id === selectedSubjectId);
 
-        console.log(` Subject ${JSON.stringify(subject)}`);
+        console.log(`Subject ${JSON.stringify(subject)}`);
+        console.log(`SubSections ${JSON.stringify(subject.sub_sections)}`);
 
-        const subSections = subjectData.sub_sections.map(item => ({
+        const subSections = subject.sub_sections.map(item => ({
             ...item,
             checked: true
         }));
         this.setState({
-            subject: subjectData,
+            subject: subject,
             subSections: subSections
         });
         this.openBottomSheet()
